@@ -186,6 +186,10 @@ a {
   justify-content: space-between;
 }
 
+.navbar-brand {
+  margin-right: var(--space-xl);
+}
+
 .navbar-brand img {
   height: 3rem;
   width: auto;
