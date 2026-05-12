@@ -218,13 +218,18 @@
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs font-medium mb-6 reveal">Credentials</div>
         <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal">Licenses & <span class="text-gradient">Certifications</span></h2>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-        <div class="gallery-item rounded-xl reveal" onclick="openModal('images/picture-2.png')"><img src="images/picture-2.png" alt="License 1"></div>
-        <div class="gallery-item rounded-xl reveal" onclick="openModal('images/picture-3.png')"><img src="images/picture-3.png" alt="License 2"></div>
-        <div class="gallery-item rounded-xl reveal" onclick="openModal('images/picture-4.png')"><img src="images/picture-4.png" alt="License 3"></div>
-        <div class="gallery-item rounded-xl reveal" onclick="openModal('images/picture-5.png')"><img src="images/picture-5.png" alt="License 4"></div>
-        <div class="gallery-item rounded-xl reveal" onclick="openModal('images/picture-6.png')"><img src="images/picture-6.png" alt="License 5"></div>
-        <div class="gallery-item rounded-xl reveal" onclick="openModal('images/picture-7.png')"><img src="images/picture-7.png" alt="License 6"></div>
+      <div class="cert-carousel reveal" id="certCarousel">
+        <button class="cert-carousel-btn prev" onclick="certPrev()" aria-label="Previous certificate"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
+        <div class="cert-carousel-track" id="certTrack">
+          <div class="cert-carousel-slide" onclick="openModal('images/picture-2.png')"><img src="images/picture-2.png" alt="License 1"></div>
+          <div class="cert-carousel-slide" onclick="openModal('images/picture-3.png')"><img src="images/picture-3.png" alt="License 2"></div>
+          <div class="cert-carousel-slide" onclick="openModal('images/picture-4.png')"><img src="images/picture-4.png" alt="License 3"></div>
+          <div class="cert-carousel-slide" onclick="openModal('images/picture-5.png')"><img src="images/picture-5.png" alt="License 4"></div>
+          <div class="cert-carousel-slide" onclick="openModal('images/picture-6.png')"><img src="images/picture-6.png" alt="License 5"></div>
+          <div class="cert-carousel-slide" onclick="openModal('images/picture-7.png')"><img src="images/picture-7.png" alt="License 6"></div>
+        </div>
+        <button class="cert-carousel-btn next" onclick="certNext()" aria-label="Next certificate"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
+        <div class="cert-carousel-dots" id="certDots"></div>
       </div>
     </div>
   </section>
@@ -340,6 +345,49 @@
     function openModal(src) { document.getElementById('modalImage').src = src; document.getElementById('imageModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
     function closeModal() { document.getElementById('imageModal').classList.remove('active'); document.body.style.overflow = ''; }
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    // Certificate Carousel
+    (function() {
+      const track = document.getElementById('certTrack');
+      const dotsContainer = document.getElementById('certDots');
+      if (!track || !dotsContainer) return;
+      const slides = track.children;
+      const total = slides.length;
+      let current = 0;
+      let autoplayInterval;
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'cert-carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to certificate ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+      }
+      function updateDots() {
+        dotsContainer.querySelectorAll('.cert-carousel-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === current);
+        });
+      }
+      function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        updateDots();
+      }
+      window.certNext = function() { goTo(current + 1); resetAutoplay(); };
+      window.certPrev = function() { goTo(current - 1); resetAutoplay(); };
+      function startAutoplay() {
+        autoplayInterval = setInterval(() => goTo(current + 1), 4000);
+      }
+      function resetAutoplay() {
+        clearInterval(autoplayInterval);
+        startAutoplay();
+      }
+      startAutoplay();
+      const carousel = document.getElementById('certCarousel');
+      if (carousel) {
+        carousel.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+        carousel.addEventListener('mouseleave', startAutoplay);
+      }
+    })();
     // Custom Cursor
     (function() {
       const cursor = document.getElementById('cursor');
