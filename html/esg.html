@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1, minimum-scale=1" name="viewport">
+  <link href="../images/title-9.png" rel="shortcut icon" type="image/x-icon">
+  <meta content="UBBIM's ESG commitment: mangrove replanting, community aid, education support, anti-bribery governance, and SDG 17 alignment." name="description">
+  <title>ESG | UBBIM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { display: ['Space Grotesk', 'sans-serif'], body: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+          colors: { ink: { 950: '#01040f' }, electric: { 400: '#38bdf8', 500: '#0ea5e9' }, neon: { 400: '#a78bfa', 500: '#8b5cf6' }, agent: { 400: '#34d399', 500: '#10b981' } }
+        }
+      }
+    }
+  </script>
+  <link href="../css/shared.css" rel="stylesheet">
+</head>
+<body class="antialiased cursor-enabled">
+  <script async="" src="../js/1011292769853518"></script>
+  <script async="" src="../js/fbevents.js"></script>
+  <script async="" src="../js/js"></script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-Y8PSZEXZYD');</script>
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '1011292769853518');fbq('track', 'PageView');</script>
+  <noscript><img height="1" src="../images/tr" style="display:none" width="1"></noscript>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="noise"></div>
+
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center group"><img src="../images/title-9.png" alt="UBBIM" class="h-10 w-auto brightness-0 invert"></a>
+        <div class="hidden md:flex items-center gap-8">
+          <div class="relative group">
+            <button class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1">Services <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+            <div class="absolute top-full left-0 mt-2 w-56 glass rounded-lg border border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
+              <a href="built-environment-services.html" class="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors">Built Environment Services</a>
+              <a href="digital-solutions.html" class="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors">Digital Solutions</a>
+              <a href="training-development.html" class="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors">Training &amp; Development</a>
+            </div>
+          </div>
+          <a href="projects.html" class="text-sm text-slate-400 hover:text-white transition-colors">Projects</a>
+          <a href="esg.html" class="text-sm text-slate-400 hover:text-white transition-colors">ESG</a>
+          <a href="awards.html" class="text-sm text-slate-400 hover:text-white transition-colors">Awards</a>
+          <a href="https://forms.gle/V83pyC6wXztdgcK29" target="_blank" class="text-sm text-slate-400 hover:text-white transition-colors">Whistleblower</a>
+          <a href="../ubbim-digital.html" class="text-sm text-slate-400 hover:text-white transition-colors">UBBIM Digital</a>
+        </div>
+        <a href="index.html#contact" class="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-full btn-primary text-white text-sm font-medium"><span>Contact Us</span><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
+        <button id="mobile-menu-btn" class="md:hidden text-white p-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden glass-strong border-t border-white/5">
+      <div class="px-6 py-6 space-y-4">
+        <a href="built-environment-services.html" class="block text-slate-300 hover:text-white transition-colors">Built Environment Services</a>
+        <a href="digital-solutions.html" class="block text-slate-300 hover:text-white transition-colors">Digital Solutions</a>
+        <a href="training-development.html" class="block text-slate-300 hover:text-white transition-colors">Training & Development</a>
+        <a href="projects.html" class="block text-slate-300 hover:text-white transition-colors">Projects</a>
+        <a href="esg.html" class="block text-slate-300 hover:text-white transition-colors">ESG</a>
+        <a href="awards.html" class="block text-slate-300 hover:text-white transition-colors">Awards</a>
+        <a href="../ubbim-digital.html" class="block text-slate-300 hover:text-white transition-colors">UBBIM Digital</a>
+        <a href="index.html#contact" class="inline-block mt-4 px-6 py-2.5 rounded-full btn-primary text-white text-sm font-medium">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="aurora"><div class="aurora-blob"></div><div class="aurora-blob"></div><div class="aurora-blob"></div></div>
+    <div class="absolute inset-0 grid-pattern opacity-30"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-6 reveal">Environmental, Social & Governance</div>
+      <h1 class="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-white leading-[0.95] mb-8 reveal">Building a <span class="text-gradient-agent">Better Tomorrow</span></h1>
+      <p class="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 leading-relaxed reveal">At UBBIM, sustainability is not a buzzword — it is embedded in how we operate, how we give back, and how we govern.</p>
+    </div>
+  </section>
+
+  <section class="relative py-20 overflow-hidden">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <p class="text-lg md:text-xl text-slate-400 leading-relaxed reveal">We believe that businesses have a responsibility beyond profit. Our ESG framework drives every decision we make — from protecting Malaysia's coastlines to uplifting underserved communities and upholding the highest standards of corporate integrity.</p>
+    </div>
+  </section>
+
+  <section class="relative py-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl mb-20">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-6 reveal">Environment</div>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-6 reveal">Mangrove <span class="text-gradient-agent">Replanting</span></h2>
+        <p class="text-lg text-slate-400 leading-relaxed reveal">Malaysia's mangrove forests are natural guardians of our coastlines — protecting against erosion, filtering pollutants, and serving as critical nurseries for marine life. UBBIM actively participates in mangrove replanting initiatives to restore these vital ecosystems.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-2xl p-8 border border-white/10 reveal">
+          <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 class="text-xl font-display font-bold text-white mb-3">Coastal Protection</h3>
+          <p class="text-slate-400 leading-relaxed">Replanting mangroves reinforces natural coastal barriers, reducing the impact of storms and erosion on vulnerable shorelines.</p>
+        </div>
+        <div class="glass rounded-2xl p-8 border border-white/10 reveal">
+          <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+          </div>
+          <h3 class="text-xl font-display font-bold text-white mb-3">Carbon Sequestration</h3>
+          <p class="text-slate-400 leading-relaxed">Mangroves absorb up to 5x more carbon than terrestrial forests, making them one of nature's most effective climate solutions.</p>
+        </div>
+        <div class="glass rounded-2xl p-8 border border-white/10 reveal">
+          <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 class="text-xl font-display font-bold text-white mb-3">Biodiversity Haven</h3>
+          <p class="text-slate-400 leading-relaxed">Restored mangroves create thriving habitats for fish, crustaceans, and bird species essential to Malaysia's marine ecology.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-32 overflow-hidden border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="order-2 lg:order-1">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-medium mb-6 reveal">Social</div>
+          <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal">Community <span class="text-gradient">Care</span></h2>
+          <p class="text-lg text-slate-400 leading-relaxed mb-8 reveal">We are committed to uplifting the communities around us. Through structured social programmes, UBBIM delivers direct, consistent support to families and children who need it most.</p>
+          <div class="space-y-6">
+            <div class="glass rounded-xl p-6 border border-white/10 reveal flex gap-5">
+              <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-display font-bold text-white mb-1">Monthly Food Rations</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Every month, we distribute essential food supplies to underprivileged families, ensuring no one in our community goes hungry.</p>
+              </div>
+            </div>
+            <div class="glass rounded-xl p-6 border border-white/10 reveal flex gap-5">
+              <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-display font-bold text-white mb-1">School Uniforms for Kids</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">We provide school uniforms and basic educational supplies to children from low-income households, removing barriers to education.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2 reveal">
+          <div class="relative">
+            <div class="absolute -inset-4 bg-gradient-to-br from-amber-500/10 to-sky-500/10 rounded-3xl blur-2xl"></div>
+            <div class="relative glass rounded-2xl border border-white/10 p-8 md:p-12">
+              <div class="grid grid-cols-2 gap-6">
+                <div class="text-center">
+                  <div class="text-4xl md:text-5xl font-display font-bold text-amber-400 mb-2">12+</div>
+                  <div class="text-sm text-slate-400">Years of Giving</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-4xl md:text-5xl font-display font-bold text-sky-400 mb-2">500+</div>
+                  <div class="text-sm text-slate-400">Families Supported</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-4xl md:text-5xl font-display font-bold text-emerald-400 mb-2">2,000+</div>
+                  <div class="text-sm text-slate-400">Ration Packs Delivered</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-4xl md:text-5xl font-display font-bold text-violet-400 mb-2">300+</div>
+                  <div class="text-sm text-slate-400">Kids in School</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl mb-20">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs font-medium mb-6 reveal">Governance</div>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-6 reveal">Integrity by <span class="text-gradient">Design</span></h2>
+        <p class="text-lg text-slate-400 leading-relaxed reveal">Good governance is the foundation of trust. UBBIM operates under a strict anti-bribery framework certified to international standards, ensuring transparency, fairness, and accountability in every transaction and partnership.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="service-card glass rounded-2xl overflow-hidden border border-white/10 reveal">
+          <div class="relative aspect-video overflow-hidden bg-gradient-to-br from-violet-900/40 to-purple-900/40">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg class="w-20 h-20 text-violet-400/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-ink-950 to-transparent"></div>
+          </div>
+          <div class="p-8">
+            <div class="flex items-start justify-between mb-4">
+              <h3 class="text-2xl font-display font-bold text-white">Anti-Bribery ISO Certification</h3>
+              <span class="text-xs text-slate-500 font-mono">ISO 37001</span>
+            </div>
+            <p class="text-slate-400 leading-relaxed">UBBIM is certified under the ISO 37001 Anti-Bribery Management System. This means our policies, procedures, and controls are independently verified to prevent, detect, and address bribery across all levels of our organisation.</p>
+          </div>
+        </div>
+        <div class="service-card glass rounded-2xl overflow-hidden border border-white/10 reveal">
+          <div class="relative aspect-video overflow-hidden bg-gradient-to-br from-sky-900/40 to-blue-900/40">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg class="w-20 h-20 text-sky-400/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-ink-950 to-transparent"></div>
+          </div>
+          <div class="p-8">
+            <div class="flex items-start justify-between mb-4">
+              <h3 class="text-2xl font-display font-bold text-white">Whistleblower Protection</h3>
+              <span class="text-xs text-slate-500 font-mono">Safe Reporting</span>
+            </div>
+            <p class="text-slate-400 leading-relaxed">We maintain a confidential whistleblower channel where employees, partners, and stakeholders can report concerns without fear of retaliation. Every report is investigated thoroughly and impartially.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-32 overflow-hidden border-y border-white/5">
+    <div class="absolute inset-0">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-gradient-to-r from-emerald-500/5 via-sky-500/5 to-violet-500/5 rounded-full blur-[150px]"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-medium mb-6 reveal">Global Alignment</div>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-6 reveal">Aligned with <span class="text-gradient">SDG 17</span></h2>
+        <p class="max-w-2xl mx-auto text-lg text-slate-400 leading-relaxed reveal">UBBIM's ESG strategy is anchored in the UN Sustainable Development Goals, with a special focus on SDG 17 — Partnerships for the Goals. We believe lasting change happens when organisations, communities, and governments work together.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-2xl p-8 border border-white/10 reveal text-center">
+          <div class="w-20 h-20 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          </div>
+          <h3 class="text-xl font-display font-bold text-white mb-3">Multi-Stakeholder Partnerships</h3>
+          <p class="text-slate-400 leading-relaxed">We collaborate with environmental NGOs, local councils, schools, and industry bodies to amplify the impact of our programmes.</p>
+        </div>
+        <div class="glass rounded-2xl p-8 border border-white/10 reveal text-center">
+          <div class="w-20 h-20 rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+          </div>
+          <h3 class="text-xl font-display font-bold text-white mb-3">Knowledge Sharing</h3>
+          <p class="text-slate-400 leading-relaxed">We openly share our ESG learnings with clients, peers, and the wider construction industry to accelerate sustainable practices across the sector.</p>
+        </div>
+        <div class="glass rounded-2xl p-8 border border-white/10 reveal text-center">
+          <div class="w-20 h-20 rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 class="text-xl font-display font-bold text-white mb-3">Measurable Impact</h3>
+          <p class="text-slate-400 leading-relaxed">Every initiative is tracked, measured, and reported. We hold ourselves accountable to the communities we serve and the planet we share.</p>
+        </div>
+      </div>
+      <div class="mt-16 glass rounded-2xl border border-white/10 p-8 md:p-12 reveal">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+          <div>
+            <h3 class="text-2xl font-display font-bold text-white mb-2">Our Commitment to the UN SDGs</h3>
+            <p class="text-slate-400">UBBIM actively contributes to SDG 1 (No Poverty), SDG 4 (Quality Education), SDG 13 (Climate Action), SDG 14 (Life Below Water), and SDG 17 (Partnerships for the Goals).</p>
+          </div>
+          <div class="flex gap-3 shrink-0">
+            <div class="w-12 h-12 rounded-lg bg-red-500/20 border border-red-500/30 flex items-center justify-center text-red-400 font-bold text-sm">1</div>
+            <div class="w-12 h-12 rounded-lg bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-sm">4</div>
+            <div class="w-12 h-12 rounded-lg bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-sm">13</div>
+            <div class="w-12 h-12 rounded-lg bg-sky-500/20 border border-sky-500/30 flex items-center justify-center text-sky-400 font-bold text-sm">14</div>
+            <div class="w-12 h-12 rounded-lg bg-violet-500/20 border border-violet-500/30 flex items-center justify-center text-violet-400 font-bold text-sm">17</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="relative py-32 overflow-hidden">
+    <div class="absolute inset-0"><div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/5 rounded-full blur-[150px]"></div></div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+      <div class="grid lg:grid-cols-1 gap-16 max-w-2xl mx-auto">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-6 reveal">Get in Touch</div>
+          <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal">Partner With <span class="text-gradient-agent">Us</span></h2>
+          <p class="text-slate-400 mb-8 reveal">Interested in collaborating on an ESG initiative? We are always open to partnerships that create meaningful, lasting impact.</p>
+          <div class="space-y-6 mt-10">
+            <div class="glass rounded-xl p-6 border border-white/10 reveal"><div class="text-xs text-emerald-400 font-medium uppercase tracking-wider mb-2">Address</div><div class="text-white">219, Jalan S2 B10, Seremban 2,<br>70300 Seremban, Negeri Sembilan</div></div>
+            <div class="glass rounded-xl p-6 border border-white/10 reveal"><div class="text-xs text-sky-400 font-medium uppercase tracking-wider mb-2">Phone</div><div class="text-white">+606-6016007</div></div>
+            <div class="glass rounded-xl p-6 border border-white/10 reveal"><div class="text-xs text-violet-400 font-medium uppercase tracking-wider mb-2">Email</div><div class="text-white">admin@ubbim.com</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-white/5 py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <div class="md:col-span-1">
+          <img src="../images/title-9.png" alt="UBBIM" class="h-8 w-auto brightness-0 invert mb-4">
+          <p class="text-slate-500 text-sm leading-relaxed">Integrated Solutions for the Built Environment.</p>
+        </div>
+        <div>
+          <div class="text-xs text-slate-500 font-medium uppercase tracking-wider mb-3">Seremban HQ</div>
+          <p class="text-slate-400 text-sm leading-relaxed">219, Jalan S2 B10, Seremban 2,<br>70300 Seremban, Negeri Sembilan</p>
+        </div>
+        <div>
+          <div class="text-xs text-slate-500 font-medium uppercase tracking-wider mb-3">Penang</div>
+          <p class="text-slate-400 text-sm leading-relaxed">Level 2, Moulmein Rise Shoppes,<br>No. 9, Jalan Moulmein,<br>10350 George Town, Penang</p>
+        </div>
+        <div>
+          <div class="text-xs text-slate-500 font-medium uppercase tracking-wider mb-3">Bangsar South</div>
+          <p class="text-slate-400 text-sm leading-relaxed">Menara BT, Level 1 & 2, Tower 3,<br>Avenue 7, Horizon 2,<br>Bangsar South City No. 8, Jalan Kerinchi,<br>59200 Kuala Lumpur</p>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-slate-600 text-sm">© 2024 UBBIM - All Rights Reserved</div>
+        <div class="flex gap-6">
+          <a href="built-environment-services.html" class="text-sm text-slate-500 hover:text-white transition-colors">Services</a>
+          <a href="projects.html" class="text-sm text-slate-500 hover:text-white transition-colors">Projects</a>
+          <a href="awards.html" class="text-sm text-slate-500 hover:text-white transition-colors">Awards</a>
+          <a href="index.html#contact" class="text-sm text-slate-500 hover:text-white transition-colors">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('glass-strong', window.scrollY > 50));
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', e.clientX - rect.left + 'px');
+        card.style.setProperty('--mouse-y', e.clientY - rect.top + 'px');
+      });
+    });
+    gsap.registerPlugin(ScrollTrigger);
+    document.querySelectorAll('.reveal').forEach(el => {
+      gsap.to(el, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' } });
+    });
+
+    // Custom Cursor
+    (function() {
+      const cursor = document.getElementById('cursor');
+      const cursorDot = document.getElementById('cursor-dot');
+      if (!cursor || !cursorDot) return;
+      let mouseX = 0, mouseY = 0;
+      let cursorX = 0, cursorY = 0;
+      let dotX = 0, dotY = 0;
+      document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+      function animateCursor() {
+        cursorX += (mouseX - cursorX) * 0.15;
+        cursorY += (mouseY - cursorY) * 0.15;
+        dotX += (mouseX - dotX) * 0.5;
+        dotY += (mouseY - dotY) * 0.5;
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+        cursorDot.style.left = dotX + 'px';
+        cursorDot.style.top = dotY + 'px';
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+      document.querySelectorAll('a, button, .service-card, .agent-card, [onclick], input, textarea, select, .gallery-item').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+      });
+      if ('ontouchstart' in window) {
+        cursor.style.display = 'none';
+        cursorDot.style.display = 'none';
+        document.querySelectorAll('*').forEach(el => el.style.cursor = 'auto');
+      }
+    })();
+  </script>
+</body>
+</html>
