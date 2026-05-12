@@ -7,259 +7,165 @@
   <link href="../images/title-9.png" rel="shortcut icon" type="image/x-icon">
   <meta content="Explore Our Success Stories in the Built Environment and Digital Innovation" name="description">
   <title>Our Projects | UBBIM</title>
-  <link href="../css/modern.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { display: ['Space Grotesk', 'sans-serif'], body: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+          colors: { ink: { 950: '#01040f' }, electric: { 400: '#38bdf8', 500: '#0ea5e9' }, neon: { 400: '#a78bfa', 500: '#8b5cf6' }, agent: { 400: '#34d399', 500: '#10b981' } }
+        }
+      }
+    }
+  </script>
+  <link href="../css/shared.css" rel="stylesheet">
 </head>
-<body>
+<body class="antialiased">
   <script async="" src="../js/1011292769853518"></script>
   <script async="" src="../js/fbevents.js"></script>
   <script async="" src="../js/js"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-Y8PSZEXZYD');
-  </script>
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1011292769853518');
-    fbq('track', 'PageView');
-  </script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-Y8PSZEXZYD');</script>
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '1011292769853518');fbq('track', 'PageView');</script>
   <noscript><img height="1" src="../images/tr" style="display:none" width="1"></noscript>
 
-  <nav class="navbar" id="navbar">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img alt="UBBIM" src="../images/title-9.png">
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="navbar-nav" id="navbarNav">
-        <li class="nav-item nav-dropdown">
-          <a class="nav-link" href="#">Services</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="built-environment-services.html">Built Environment Services</a>
-            <a class="dropdown-item" href="digital-solutions.html">Digital Solutions</a>
+  <div class="noise"></div>
+
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center group"><img src="../images/title-9.png" alt="UBBIM" class="h-10 w-auto brightness-0 invert"></a>
+        <div class="hidden md:flex items-center gap-8">
+          <div class="relative group">
+            <button class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1">Services <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+            <div class="absolute top-full left-0 mt-2 w-56 glass rounded-lg border border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
+              <a href="built-environment-services.html" class="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors">Built Environment Services</a>
+              <a href="digital-solutions.html" class="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors">Digital Solutions</a>
+            </div>
           </div>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://ecologi.com/ubbim" target="_blank">Sustainability Report</a></li>
-        <li class="nav-item"><a class="nav-link" href="awards.html">Awards</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://forms.gle/V83pyC6wXztdgcK29" target="_blank">Whistleblower Channel</a></li>
-        <li class="nav-item"><a class="nav-link" href="../ubbim-digital.html">UBBIM Digital</a></li>
-        <li class="nav-item"><a class="btn-nav" href="index.html#contact">Contact Us</a></li>
-      </ul>
+          <a href="projects.html" class="text-sm text-slate-400 hover:text-white transition-colors">Projects</a>
+          <a href="https://ecologi.com/ubbim" target="_blank" class="text-sm text-slate-400 hover:text-white transition-colors">Sustainability Report</a>
+          <a href="awards.html" class="text-sm text-slate-400 hover:text-white transition-colors">Awards</a>
+          <a href="https://forms.gle/V83pyC6wXztdgcK29" target="_blank" class="text-sm text-slate-400 hover:text-white transition-colors">Whistleblower</a>
+          <a href="../ubbim-digital.html" class="text-sm text-slate-400 hover:text-white transition-colors">UBBIM Digital</a>
+        </div>
+        <a href="index.html#contact" class="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-full btn-primary text-white text-sm font-medium"><span>Contact Us</span><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
+        <button id="mobile-menu-btn" class="md:hidden text-white p-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden glass-strong border-t border-white/5">
+      <div class="px-6 py-6 space-y-4">
+        <a href="built-environment-services.html" class="block text-slate-300 hover:text-white transition-colors">Built Environment Services</a>
+        <a href="digital-solutions.html" class="block text-slate-300 hover:text-white transition-colors">Digital Solutions</a>
+        <a href="projects.html" class="block text-slate-300 hover:text-white transition-colors">Projects</a>
+        <a href="awards.html" class="block text-slate-300 hover:text-white transition-colors">Awards</a>
+        <a href="../ubbim-digital.html" class="block text-slate-300 hover:text-white transition-colors">UBBIM Digital</a>
+        <a href="index.html#contact" class="inline-block mt-4 px-6 py-2.5 rounded-full btn-primary text-white text-sm font-medium">Contact Us</a>
+      </div>
     </div>
   </nav>
 
   <section class="page-header">
-    <img alt="" class="page-header-bg" src="../images/mbr-3.jpg">
-    <div class="page-header-content">
-      <span class="label hero-label animate-in">Portfolio</span>
-      <h1 class="display-hero animate-in animate-delay-1">Our Projects</h1>
-      <div class="hero-line animate-in animate-delay-2"></div>
-      <p class="body-large animate-in animate-delay-2">Explore Our Success Stories in the Built Environment and Digital Innovation</p>
+    <div class="aurora"><div class="aurora-blob"></div><div class="aurora-blob"></div><div class="aurora-blob"></div></div>
+    <div class="absolute inset-0 grid-pattern opacity-30"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-medium mb-6 reveal">Portfolio</div>
+      <h1 class="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-white leading-[0.95] mb-8 reveal">Our <span class="text-gradient">Projects</span></h1>
+      <p class="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 leading-relaxed reveal">Explore Our Success Stories in the Built Environment and Digital Innovation</p>
     </div>
   </section>
 
-  <section class="section" style="background: var(--bg-secondary);">
-    <div class="container">
-      <div class="section-header center">
-        <span class="label animate-in">Construction</span>
-        <h2 class="display-section animate-in animate-delay-1">Built Environment Projects</h2>
+  <section class="relative py-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-6 reveal">Construction</div>
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal">Built Environment <span class="text-gradient-agent">Projects</span></h2>
       </div>
-      <div class="project-slideshow animate-in animate-delay-2" id="beSlideshow">
-        <div class="project-slide active">
-          <img alt="Project 1" src="../images/screenshot-2023-05-02-at-2.13.05-pm.png">
-          <div class="project-slide-caption">
-            <p>Site Clearance Earthwork, Road & Drainage and Detention Pond Works for Kualiti Alam Sdn Bhd</p>
-          </div>
-        </div>
-        <div class="project-slide">
-          <img alt="Project 2" src="../images/screenshot-2023-05-02-at-2.14.54-pm.png">
-          <div class="project-slide-caption">
-            <p>Development of Scheduled Waste Management Centre ("SWMCJ") Infrastructure Package for Cenviro Johor Sdn Bhd</p>
-          </div>
-        </div>
-        <div class="project-slide">
-          <img alt="Project 3" src="../images/screenshot-2023-05-02-at-2.16.56-pm.png">
-          <div class="project-slide-caption">
-            <p>Modularised incinerator project for Kualiti Alam Sdn Bhd</p>
-          </div>
-        </div>
-        <div class="project-slide">
-          <img alt="Project 4" src="../images/screenshot-2023-05-02-at-2.19.09-pm.png">
-          <div class="project-slide-caption">
-            <p>Design and Construction of Depolution System Plant at Tanjong Malim Perak for M/S Special Builder Sdn Bhd</p>
-          </div>
-        </div>
-        <div class="project-slide">
-          <img alt="Project 5" src="../images/screenshot-2023-05-02-at-2.21.06-pm.png">
-          <div class="project-slide-caption">
-            <p>Design, Fabrication and Erection of Storage Tank and Process Equipments for Cenviro Recovery and Recycling Plant</p>
-          </div>
-        </div>
-        <div class="project-slide">
-          <img alt="Project 6" src="../images/screenshot-2023-05-02-at-2.25.55-pm.png">
-          <div class="project-slide-caption">
-            <p>Fabrication & Erection of Structure Steel for the Ampang Line LRT extension project</p>
-          </div>
-        </div>
-        <div class="project-slide">
-          <img alt="Project 7" src="../images/screenshot-2023-05-02-at-2.30.37-pm.png">
-          <div class="project-slide-caption">
-            <p>Construction of PDRM Training Centre in Simpang Pulai, Pahang</p>
-          </div>
-        </div>
-        <div class="slideshow-arrows">
-          <button class="slideshow-arrow" onclick="changeSlide('be', -1)">&#8592;</button>
-          <button class="slideshow-arrow" onclick="changeSlide('be', 1)">&#8594;</button>
-        </div>
+      <div class="project-slideshow reveal" id="beSlideshow">
+        <div class="project-slide active rounded-2xl overflow-hidden border border-white/10"><img src="../images/screenshot-2023-05-02-at-2.13.05-pm.png" alt="Project 1"><div class="project-slide-caption"><p>Site Clearance Earthwork, Road & Drainage and Detention Pond Works for Kualiti Alam Sdn Bhd</p></div></div>
+        <div class="project-slide rounded-2xl overflow-hidden border border-white/10"><img src="../images/screenshot-2023-05-02-at-2.14.54-pm.png" alt="Project 2"><div class="project-slide-caption"><p>Development of Scheduled Waste Management Centre ("SWMCJ") Infrastructure Package for Cenviro Johor Sdn Bhd</p></div></div>
+        <div class="project-slide rounded-2xl overflow-hidden border border-white/10"><img src="../images/screenshot-2023-05-02-at-2.16.56-pm.png" alt="Project 3"><div class="project-slide-caption"><p>Modularised incinerator project for Kualiti Alam Sdn Bhd</p></div></div>
+        <div class="project-slide rounded-2xl overflow-hidden border border-white/10"><img src="../images/screenshot-2023-05-02-at-2.19.09-pm.png" alt="Project 4"><div class="project-slide-caption"><p>Design and Construction of Depolution System Plant at Tanjong Malim Perak for M/S Special Builder Sdn Bhd</p></div></div>
+        <div class="project-slide rounded-2xl overflow-hidden border border-white/10"><img src="../images/screenshot-2023-05-02-at-2.21.06-pm.png" alt="Project 5"><div class="project-slide-caption"><p>Design, Fabrication and Erection of Storage Tank and Process Equipments for Cenviro Recovery and Recycling Plant</p></div></div>
+        <div class="project-slide rounded-2xl overflow-hidden border border-white/10"><img src="../images/screenshot-2023-05-02-at-2.25.55-pm.png" alt="Project 6"><div class="project-slide-caption"><p>Fabrication & Erection of Structure Steel for the Ampang Line LRT extension project</p></div></div>
+        <div class="project-slide rounded-2xl overflow-hidden border border-white/10"><img src="../images/screenshot-2023-05-02-at-2.30.37-pm.png" alt="Project 7"><div class="project-slide-caption"><p>Construction of PDRM Training Centre in Simpang Pulai, Pahang</p></div></div>
+        <div class="slideshow-arrows"><button class="slideshow-arrow" onclick="changeSlide('be', -1)">&#8592;</button><button class="slideshow-arrow" onclick="changeSlide('be', 1)">&#8594;</button></div>
       </div>
       <div class="slideshow-nav" id="beNav"></div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-header center">
-        <span class="label animate-in">Technology</span>
-        <h2 class="display-section animate-in animate-delay-1">Digital Solutions Projects</h2>
+  <section class="relative py-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs font-medium mb-6 reveal">Technology</div>
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal">Digital Solutions <span class="text-gradient">Projects</span></h2>
       </div>
-      <div class="project-slideshow animate-in animate-delay-2" id="dsSlideshow">
-        <div class="project-slide active">
-          <img alt="Digital Project 1" src="../images/screenshot-2024-08-27-at-11.09.38am.png">
-          <div class="project-slide-caption">
-            <p>Digital Permit to Work System (e-ptw) for an incineration plant</p>
-          </div>
-        </div>
-        <div class="project-slide">
-          <img alt="Digital Project 2" src="../images/screenshot-2024-08-27-at-11.14.03am-2.png">
-          <div class="project-slide-caption">
-            <p>Project Management System for Shutdown Operation</p>
-          </div>
-        </div>
-        <div class="project-slide">
-          <img alt="Digital Project 3" src="../images/screenshot-2024-08-27-at-10.56.15am-1.png">
-          <div class="project-slide-caption">
-            <p>Aerial Analytics Services for an Earthworks Project in Port Dickson</p>
-          </div>
-        </div>
-        <div class="project-slide">
-          <img alt="Digital Project 4" src="../images/screenshot-2024-08-27-at-11.18.07am.png">
-          <div class="project-slide-caption">
-            <p>3D Scanning and Facility Management System for Large Mechanical Room</p>
-          </div>
-        </div>
-        <div class="project-slide">
-          <img alt="Digital Project 5" src="../images/screenshot-26.png">
-          <div class="project-slide-caption">
-            <p>3D Process Animation Video for a Waste to Energy Plant in Johor</p>
-          </div>
-        </div>
-        <div class="project-slide">
-          <img alt="Digital Project 6" src="../images/screenshot-21.png">
-          <div class="project-slide-caption">
-            <p>Virtual Reality Remodelling of a Storage Warehouse in Melaka</p>
-          </div>
-        </div>
-        <div class="project-slide">
-          <img alt="Digital Project 7" src="../images/videoframe-16147.png">
-          <div class="project-slide-caption">
-            <p>Development of Building Contractors App (BEENA) for Association of Construction Project Managers</p>
-          </div>
-        </div>
-        <div class="slideshow-arrows">
-          <button class="slideshow-arrow" onclick="changeSlide('ds', -1)">&#8592;</button>
-          <button class="slideshow-arrow" onclick="changeSlide('ds', 1)">&#8594;</button>
-        </div>
+      <div class="project-slideshow reveal" id="dsSlideshow">
+        <div class="project-slide active rounded-2xl overflow-hidden border border-white/10"><img src="../images/screenshot-2024-08-27-at-11.09.38am.png" alt="Digital Project 1"><div class="project-slide-caption"><p>Digital Permit to Work System (e-ptw) for an incineration plant</p></div></div>
+        <div class="project-slide rounded-2xl overflow-hidden border border-white/10"><img src="../images/screenshot-2024-08-27-at-11.14.03am-2.png" alt="Digital Project 2"><div class="project-slide-caption"><p>Project Management System for Shutdown Operation</p></div></div>
+        <div class="project-slide rounded-2xl overflow-hidden border border-white/10"><img src="../images/screenshot-2024-08-27-at-10.56.15am-1.png" alt="Digital Project 3"><div class="project-slide-caption"><p>Aerial Analytics Services for an Earthworks Project in Port Dickson</p></div></div>
+        <div class="project-slide rounded-2xl overflow-hidden border border-white/10"><img src="../images/screenshot-2024-08-27-at-11.18.07am.png" alt="Digital Project 4"><div class="project-slide-caption"><p>3D Scanning and Facility Management System for Large Mechanical Room</p></div></div>
+        <div class="project-slide rounded-2xl overflow-hidden border border-white/10"><img src="../images/screenshot-26.png" alt="Digital Project 5"><div class="project-slide-caption"><p>3D Process Animation Video for a Waste to Energy Plant in Johor</p></div></div>
+        <div class="project-slide rounded-2xl overflow-hidden border border-white/10"><img src="../images/screenshot-21.png" alt="Digital Project 6"><div class="project-slide-caption"><p>Virtual Reality Remodelling of a Storage Warehouse in Melaka</p></div></div>
+        <div class="project-slide rounded-2xl overflow-hidden border border-white/10"><img src="../images/videoframe-16147.png" alt="Digital Project 7"><div class="project-slide-caption"><p>Development of Building Contractors App (BEENA) for Association of Construction Project Managers</p></div></div>
+        <div class="slideshow-arrows"><button class="slideshow-arrow" onclick="changeSlide('ds', -1)">&#8592;</button><button class="slideshow-arrow" onclick="changeSlide('ds', 1)">&#8594;</button></div>
       </div>
       <div class="slideshow-nav" id="dsNav"></div>
     </div>
   </section>
 
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="section-header">
-        <span class="label animate-in">Get in Touch</span>
-        <h2 class="display-section animate-in animate-delay-1">Contact Us</h2>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <div class="contact-item animate-in animate-delay-1">
-            <div class="contact-item-label">Address</div>
-            <div class="contact-item-value">219, Jalan S2 B10, Seremban 2,<br>70300 Seremban, Negeri Sembilan</div>
-          </div>
-          <div class="contact-item animate-in animate-delay-2">
-            <div class="contact-item-label">Phone</div>
-            <div class="contact-item-value">+606-6016007</div>
-          </div>
-          <div class="contact-item animate-in animate-delay-3">
-            <div class="contact-item-label">Email</div>
-            <div class="contact-item-value">admin@ubbim.com</div>
+  <section id="contact" class="relative py-32 overflow-hidden">
+    <div class="absolute inset-0"><div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/5 rounded-full blur-[150px]"></div></div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-6 reveal">Get in Touch</div>
+          <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal">Contact <span class="text-gradient-agent">Us</span></h2>
+          <div class="space-y-6 mt-10">
+            <div class="glass rounded-xl p-6 border border-white/10 reveal"><div class="text-xs text-emerald-400 font-medium uppercase tracking-wider mb-2">Address</div><div class="text-white">219, Jalan S2 B10, Seremban 2,<br>70300 Seremban, Negeri Sembilan</div></div>
+            <div class="glass rounded-xl p-6 border border-white/10 reveal"><div class="text-xs text-sky-400 font-medium uppercase tracking-wider mb-2">Phone</div><div class="text-white">+606-6016007</div></div>
+            <div class="glass rounded-xl p-6 border border-white/10 reveal"><div class="text-xs text-violet-400 font-medium uppercase tracking-wider mb-2">Email</div><div class="text-white">admin@ubbim.com</div></div>
           </div>
         </div>
-        <div class="contact-map animate-in animate-delay-2">
+        <div class="glass rounded-2xl border border-white/10 overflow-hidden aspect-video reveal">
           <iframe allowfullscreen="" frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBQ55g-IgRRgXrd803PTWDTb7kd6aAitNQ&amp;q=No 219, Jalan S2B10, Uptown Avenue Seremban 2, 70300 Seremban, Negeri Sembilan"></iframe>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="container">
-      <p class="footer-text">© Copyright 2024 UBBIM - All Rights Reserved</p>
+  <footer class="border-t border-white/5 py-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-3"><img src="../images/title-9.png" alt="UBBIM" class="h-8 w-auto brightness-0 invert"></div>
+      <div class="text-slate-600 text-sm">© 2024 UBBIM - All Rights Reserved</div>
+      <div class="flex gap-6">
+        <a href="built-environment-services.html" class="text-sm text-slate-500 hover:text-white transition-colors">Services</a>
+        <a href="projects.html" class="text-sm text-slate-500 hover:text-white transition-colors">Projects</a>
+        <a href="awards.html" class="text-sm text-slate-500 hover:text-white transition-colors">Awards</a>
+        <a href="index.html#contact" class="text-sm text-slate-500 hover:text-white transition-colors">Contact</a>
+      </div>
     </div>
   </footer>
 
   <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+    window.addEventListener('scroll', () => navbar.classList.toggle('glass-strong', window.scrollY > 50));
+    gsap.registerPlugin(ScrollTrigger);
+    document.querySelectorAll('.reveal').forEach(el => {
+      gsap.to(el, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' } });
     });
-
-    const navToggle = document.getElementById('navToggle');
-    const navbarNav = document.getElementById('navbarNav');
-    navToggle.addEventListener('click', () => {
-      navbarNav.classList.toggle('active');
-    });
-
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.animate-in').forEach(el => {
-      observer.observe(el);
-    });
-
-    // Slideshow logic
     const slideshows = {
       be: { current: 0, slides: document.querySelectorAll('#beSlideshow .project-slide') },
       ds: { current: 0, slides: document.querySelectorAll('#dsSlideshow .project-slide') }
     };
-
     function initSlideshow(key) {
       const nav = document.getElementById(key + 'Nav');
       slideshows[key].slides.forEach((_, i) => {
@@ -269,27 +175,17 @@
         nav.appendChild(btn);
       });
     }
-
     function goToSlide(key, index) {
       const s = slideshows[key];
       s.slides[s.current].classList.remove('active');
       s.current = (index + s.slides.length) % s.slides.length;
       s.slides[s.current].classList.add('active');
-      
       const nav = document.getElementById(key + 'Nav');
-      nav.querySelectorAll('button').forEach((btn, i) => {
-        btn.classList.toggle('active', i === s.current);
-      });
+      nav.querySelectorAll('button').forEach((btn, i) => btn.classList.toggle('active', i === s.current));
     }
-
-    function changeSlide(key, dir) {
-      goToSlide(key, slideshows[key].current + dir);
-    }
-
+    function changeSlide(key, dir) { goToSlide(key, slideshows[key].current + dir); }
     initSlideshow('be');
     initSlideshow('ds');
-
-    // Auto-advance slideshows
     setInterval(() => changeSlide('be', 1), 5000);
     setInterval(() => changeSlide('ds', 1), 5000);
   </script>

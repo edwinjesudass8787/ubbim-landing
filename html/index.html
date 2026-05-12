@@ -7,278 +7,253 @@
   <link href="../images/title-9.png" rel="shortcut icon" type="image/x-icon">
   <meta content="Explore UBBIM's integrated construction and digital solutions. From design and build to 3D scanning and custom software, we deliver excellence in every project." name="description">
   <title>UBBIM | Comprehensive Built Environment Services & Digital Solutions</title>
-  <link href="../css/modern.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { display: ['Space Grotesk', 'sans-serif'], body: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+          colors: { ink: { 950: '#01040f' }, electric: { 400: '#38bdf8', 500: '#0ea5e9' }, neon: { 400: '#a78bfa', 500: '#8b5cf6' }, agent: { 400: '#34d399', 500: '#10b981' } }
+        }
+      }
+    }
+  </script>
+  <link href="../css/shared.css" rel="stylesheet">
 </head>
-<body>
+<body class="antialiased">
   <script async="" src="../js/1011292769853518"></script>
   <script async="" src="../js/fbevents.js"></script>
   <script async="" src="../js/js"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-Y8PSZEXZYD');
-  </script>
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1011292769853518');
-    fbq('track', 'PageView');
-  </script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-Y8PSZEXZYD');</script>
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '1011292769853518');fbq('track', 'PageView');</script>
   <noscript><img height="1" src="../images/tr" style="display:none" width="1"></noscript>
 
-  <nav class="navbar" id="navbar">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img alt="UBBIM" src="../images/title-9.png">
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="navbar-nav" id="navbarNav">
-        <li class="nav-item nav-dropdown">
-          <a class="nav-link" href="#">Services</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="built-environment-services.html">Built Environment Services</a>
-            <a class="dropdown-item" href="digital-solutions.html">Digital Solutions</a>
+  <div class="noise"></div>
+
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center group"><img src="../images/title-9.png" alt="UBBIM" class="h-10 w-auto brightness-0 invert"></a>
+        <div class="hidden md:flex items-center gap-8">
+          <div class="relative group">
+            <button class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1">Services <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+            <div class="absolute top-full left-0 mt-2 w-56 glass rounded-lg border border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
+              <a href="built-environment-services.html" class="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors">Built Environment Services</a>
+              <a href="digital-solutions.html" class="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors">Digital Solutions</a>
+            </div>
           </div>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://ecologi.com/ubbim" target="_blank">Sustainability Report</a></li>
-        <li class="nav-item"><a class="nav-link" href="awards.html">Awards</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://forms.gle/V83pyC6wXztdgcK29" target="_blank">Whistleblower Channel</a></li>
-        <li class="nav-item"><a class="nav-link" href="../ubbim-digital.html">UBBIM Digital</a></li>
-        <li class="nav-item"><a class="btn-nav" href="index.html#contact">Contact Us</a></li>
-      </ul>
+          <a href="projects.html" class="text-sm text-slate-400 hover:text-white transition-colors">Projects</a>
+          <a href="https://ecologi.com/ubbim" target="_blank" class="text-sm text-slate-400 hover:text-white transition-colors">Sustainability Report</a>
+          <a href="awards.html" class="text-sm text-slate-400 hover:text-white transition-colors">Awards</a>
+          <a href="https://forms.gle/V83pyC6wXztdgcK29" target="_blank" class="text-sm text-slate-400 hover:text-white transition-colors">Whistleblower</a>
+          <a href="../ubbim-digital.html" class="text-sm text-slate-400 hover:text-white transition-colors">UBBIM Digital</a>
+        </div>
+        <a href="index.html#contact" class="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-full btn-primary text-white text-sm font-medium"><span>Contact Us</span><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
+        <button id="mobile-menu-btn" class="md:hidden text-white p-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden glass-strong border-t border-white/5">
+      <div class="px-6 py-6 space-y-4">
+        <a href="built-environment-services.html" class="block text-slate-300 hover:text-white transition-colors">Built Environment Services</a>
+        <a href="digital-solutions.html" class="block text-slate-300 hover:text-white transition-colors">Digital Solutions</a>
+        <a href="projects.html" class="block text-slate-300 hover:text-white transition-colors">Projects</a>
+        <a href="awards.html" class="block text-slate-300 hover:text-white transition-colors">Awards</a>
+        <a href="../ubbim-digital.html" class="block text-slate-300 hover:text-white transition-colors">UBBIM Digital</a>
+        <a href="index.html#contact" class="inline-block mt-4 px-6 py-2.5 rounded-full btn-primary text-white text-sm font-medium">Contact Us</a>
+      </div>
     </div>
   </nav>
 
-  <section class="hero">
-    <div class="hero-geo hero-geo-1"></div>
-    <div class="hero-geo hero-geo-2"></div>
-    <div class="hero-content">
-      <span class="label hero-label animate-in">Since 2004</span>
-      <h1 class="display-hero hero-title animate-in animate-delay-1">
-        Integrated Solutions for the <em>Built Environment</em> and Beyond
-      </h1>
-      <div class="hero-line animate-in animate-delay-2"></div>
-      <p class="body-large hero-subtitle animate-in animate-delay-2">
-        From construction excellence to cutting-edge digital innovation, UBBIM delivers comprehensive services that shape the future of industries.
-      </p>
-    </div>
-  </section>
-
-  <section class="section video-section">
-    <div class="container">
-      <div class="section-header center">
-        <span class="label animate-in">Discover UBBIM</span>
-        <h2 class="display-section animate-in animate-delay-1">Our Story in Motion</h2>
-      </div>
-      <div class="video-container animate-in animate-delay-2">
-        <iframe allowfullscreen="" frameborder="0" height="720" src="https://www.youtube.com/embed/IMFSWjvVlUM?rel=0&amp;showinfo=0&amp;autoplay=0&amp;loop=0" width="1280"></iframe>
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="aurora"><div class="aurora-blob"></div><div class="aurora-blob"></div><div class="aurora-blob"></div></div>
+    <div class="absolute inset-0 grid-pattern opacity-30"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center pt-20">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-10 reveal"><span class="w-2 h-2 rounded-full bg-emerald-400 status-dot"></span><span class="text-sm text-slate-300">Since 2004 — Over 20 Years of Excellence</span></div>
+      <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] mb-8 reveal">Integrated Solutions<br /><span class="text-gradient-shine">for the Built Environment</span></h1>
+      <p class="max-w-3xl mx-auto text-lg md:text-xl text-slate-400 leading-relaxed mb-12 reveal">From construction excellence to cutting-edge digital innovation, <strong class="text-white font-semibold">UBBIM delivers comprehensive services</strong> that shape the future of industries.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-20 reveal">
+        <a href="#services" class="px-8 py-4 rounded-full btn-primary text-white font-semibold inline-flex items-center justify-center gap-2">Explore Our Services <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg></a>
+        <a href="projects.html" class="px-8 py-4 rounded-full btn-outline text-white font-semibold inline-flex items-center justify-center gap-2">View Projects</a>
       </div>
     </div>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50"><span class="text-xs text-slate-500 uppercase tracking-widest">Scroll</span><div class="w-px h-12 bg-gradient-to-b from-slate-500 to-transparent"></div></div>
   </section>
 
-  <section class="section" id="about">
-    <div class="container">
-      <div class="section-header center">
-        <span class="label animate-in">About Us</span>
-        <h2 class="display-section animate-in animate-delay-1">Experience, Expertise, and a Commitment to Excellence</h2>
+  <div class="border-y border-white/5 py-6 bg-ink-950/50 backdrop-blur-sm">
+    <div class="marquee-container">
+      <div class="marquee-content">
+        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">DESIGN & BUILD</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">DIGITAL SOLUTIONS</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">3D SCANNING</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">AERIAL ANALYTICS</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">DESIGN & BUILD</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">DIGITAL SOLUTIONS</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">3D SCANNING</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">AERIAL ANALYTICS</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
       </div>
-      <div class="about-grid">
-        <div class="about-card animate-in animate-delay-1">
-          <div class="about-card-number">01</div>
-          <p class="body-text">UBBIM is a leading construction project management company with over 20 years of experience in the industry. We provide comprehensive solutions for construction projects, including design-build services, project management, progress monitoring, and data analytics. Our team of experts is committed to delivering high-quality services that meet the unique needs of each and every one of our clients.</p>
-        </div>
-        <div class="about-card animate-in animate-delay-2">
-          <div class="about-card-number">02</div>
-          <p class="body-text">At UBBIM, we are continuously looking for ways to improve our services through technology adoption. We utilize advanced digital technologies such as Building Information Modeling (BIM), virtual reality (VR), and other digital tools to optimize project performance and delivery. Our focus on technology adoption allows us to stay at the forefront of the industry and provide innovative solutions for our clients.</p>
-        </div>
-        <div class="about-card animate-in animate-delay-3">
-          <div class="about-card-number">03</div>
-          <p class="body-text">Our team brings a wealth of experience and expertise to every project, providing expert guidance and support throughout the project lifecycle. We are committed to delivering projects on time, on budget, and to the highest standards of quality. Contact us today to learn more about how we can help you with your construction project needs.</p>
-        </div>
+    </div>
+  </div>
+
+  <section class="relative py-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-medium mb-6 reveal">Discover UBBIM</div>
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal">Our Story in Motion</h2>
+      </div>
+      <div class="relative rounded-2xl overflow-hidden border border-white/10 reveal" style="padding-bottom: 56.25%;">
+        <iframe allowfullscreen="" frameborder="0" class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/IMFSWjvVlUM?rel=0&amp;showinfo=0&amp;autoplay=0&amp;loop=0"></iframe>
       </div>
     </div>
   </section>
 
-  <section class="section" id="services" style="background: var(--bg-secondary);">
-    <div class="container">
-      <div class="section-header center">
-        <span class="label animate-in">What We Do</span>
-        <h2 class="display-section animate-in animate-delay-1">Our Services</h2>
+  <section id="about" class="relative py-32 overflow-hidden">
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-[150px]"></div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+      <div class="text-center mb-20">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-6 reveal">About Us</div>
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal">Experience, Expertise, and a <span class="text-gradient-agent">Commitment to Excellence</span></h2>
       </div>
-      <div class="services-grid">
-        <div class="service-card animate-in animate-delay-1">
-          <div class="service-card-image">
-            <img alt="Built Environment Services" src="../images/mbr.png">
-            <div class="service-card-overlay"></div>
-          </div>
-          <div class="service-card-content">
-            <h3 class="service-card-title">Built Environment Services</h3>
-            <p class="body-text service-card-text">Our Built Environment Services encompass every phase of construction and infrastructure development, from design and build to maintenance and refurbishment. We specialize in delivering high-quality, sustainable solutions that meet the unique needs of each project, ensuring safety, efficiency, and long-term value.</p>
-            <a class="btn-service" href="built-environment-services.html">Learn More</a>
-          </div>
-        </div>
-        <div class="service-card animate-in animate-delay-2">
-          <div class="service-card-image">
-            <img alt="Digital Solutions" src="../images/mbr-4.jpg">
-            <div class="service-card-overlay"></div>
-          </div>
-          <div class="service-card-content">
-            <h3 class="service-card-title">Digital Solutions</h3>
-            <p class="body-text service-card-text">Our Digital Solutions integrate advanced technologies like aerial analytics, 3D scanning, and virtual design coordination to transform how projects are planned, executed, and managed. We also develop custom software tailored to optimize operations, enhance collaboration, and drive innovation across industries.</p>
-            <a class="btn-service" href="digital-solutions.html">Learn More</a>
-          </div>
-        </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass rounded-2xl p-8 border border-white/10 reveal"><div class="text-5xl font-display font-bold text-emerald-400/30 mb-4">01</div><p class="text-slate-400 leading-relaxed">UBBIM is a leading construction project management company with over 20 years of experience in the industry. We provide comprehensive solutions for construction projects, including design-build services, project management, progress monitoring, and data analytics.</p></div>
+        <div class="glass rounded-2xl p-8 border border-white/10 reveal"><div class="text-5xl font-display font-bold text-sky-400/30 mb-4">02</div><p class="text-slate-400 leading-relaxed">At UBBIM, we are continuously looking for ways to improve our services through technology adoption. We utilize advanced digital technologies such as Building Information Modeling (BIM), virtual reality (VR), and other digital tools to optimize project performance and delivery.</p></div>
+        <div class="glass rounded-2xl p-8 border border-white/10 reveal"><div class="text-5xl font-display font-bold text-violet-400/30 mb-4">03</div><p class="text-slate-400 leading-relaxed">Our team brings a wealth of experience and expertise to every project, providing expert guidance and support throughout the project lifecycle. We are committed to delivering projects on time, on budget, and to the highest standards of quality.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="certifications">
-    <div class="container">
-      <div class="section-header center">
-        <span class="label animate-in">Credentials</span>
-        <h2 class="display-section animate-in animate-delay-1">Licenses & Certifications</h2>
+  <section id="services" class="relative py-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl mb-20">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-medium mb-6 reveal">What We Do</div>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-6 reveal">Our <span class="text-gradient">Services</span></h2>
       </div>
-      <div class="gallery-grid">
-        <div class="gallery-item animate-in animate-delay-1" onclick="openModal('../images/picture-2.png')">
-          <img alt="License 1" src="../images/picture-2.png">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="service-card glass rounded-2xl overflow-hidden border border-white/10 reveal">
+          <div class="relative aspect-video overflow-hidden"><img src="../images/mbr.png" alt="Built Environment Services" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500 hover:scale-105"><div class="absolute inset-0 bg-gradient-to-t from-ink-950 to-transparent"></div></div>
+          <div class="p-8">
+            <div class="flex items-start justify-between mb-4"><h3 class="text-2xl font-display font-bold text-white">Built Environment Services</h3><span class="text-xs text-slate-500 font-mono">01</span></div>
+            <p class="text-slate-400 leading-relaxed mb-6">Our Built Environment Services encompass every phase of construction and infrastructure development, from design and build to maintenance and refurbishment. We specialize in delivering high-quality, sustainable solutions.</p>
+            <a href="built-environment-services.html" class="inline-flex items-center gap-2 text-sky-400 hover:text-sky-300 transition-colors text-sm font-medium">Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+          </div>
         </div>
-        <div class="gallery-item animate-in animate-delay-2" onclick="openModal('../images/picture-3.png')">
-          <img alt="License 2" src="../images/picture-3.png">
-        </div>
-        <div class="gallery-item animate-in animate-delay-3" onclick="openModal('../images/picture-4.png')">
-          <img alt="License 3" src="../images/picture-4.png">
-        </div>
-        <div class="gallery-item animate-in animate-delay-4" onclick="openModal('../images/picture-5.png')">
-          <img alt="License 4" src="../images/picture-5.png">
-        </div>
-        <div class="gallery-item animate-in animate-delay-5" onclick="openModal('../images/picture-6.png')">
-          <img alt="License 5" src="../images/picture-6.png">
-        </div>
-        <div class="gallery-item animate-in animate-delay-5" onclick="openModal('../images/picture-7.png')">
-          <img alt="License 6" src="../images/picture-7.png">
+        <div class="service-card glass rounded-2xl overflow-hidden border border-white/10 reveal">
+          <div class="relative aspect-video overflow-hidden"><img src="../images/mbr-4.jpg" alt="Digital Solutions" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500 hover:scale-105"><div class="absolute inset-0 bg-gradient-to-t from-ink-950 to-transparent"></div></div>
+          <div class="p-8">
+            <div class="flex items-start justify-between mb-4"><h3 class="text-2xl font-display font-bold text-white">Digital Solutions</h3><span class="text-xs text-slate-500 font-mono">02</span></div>
+            <p class="text-slate-400 leading-relaxed mb-6">Our Digital Solutions integrate advanced technologies like aerial analytics, 3D scanning, and virtual design coordination to transform how projects are planned, executed, and managed.</p>
+            <a href="digital-solutions.html" class="inline-flex items-center gap-2 text-violet-400 hover:text-violet-300 transition-colors text-sm font-medium">Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section section-compact clients-section">
-    <div class="container">
-      <div class="section-header center">
-        <span class="label animate-in">Partners</span>
-        <h2 class="display-section animate-in animate-delay-1">We Are Trusted By</h2>
+  <section id="certifications" class="relative py-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs font-medium mb-6 reveal">Credentials</div>
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal">Licenses & <span class="text-gradient">Certifications</span></h2>
       </div>
-      <div class="clients-grid animate-in animate-delay-2">
-        <img alt="Cenviro" class="client-logo" src="../images/cenviro.png">
-        <img alt="CIDB" class="client-logo" src="../images/cidb-1.png">
-        <img alt="North" class="client-logo" src="../images/north-2.png">
-        <img alt="FGV" class="client-logo" src="../images/fgv.png">
-        <img alt="MAHB" class="client-logo" src="../images/mahb.png">
-        <img alt="MOF" class="client-logo" src="../images/mof-1.png">
-        <img alt="MINDEF" class="client-logo" src="../images/mindef-1.png">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div class="gallery-item rounded-xl reveal" onclick="openModal('../images/picture-2.png')"><img src="../images/picture-2.png" alt="License 1"></div>
+        <div class="gallery-item rounded-xl reveal" onclick="openModal('../images/picture-3.png')"><img src="../images/picture-3.png" alt="License 2"></div>
+        <div class="gallery-item rounded-xl reveal" onclick="openModal('../images/picture-4.png')"><img src="../images/picture-4.png" alt="License 3"></div>
+        <div class="gallery-item rounded-xl reveal" onclick="openModal('../images/picture-5.png')"><img src="../images/picture-5.png" alt="License 4"></div>
+        <div class="gallery-item rounded-xl reveal" onclick="openModal('../images/picture-6.png')"><img src="../images/picture-6.png" alt="License 5"></div>
+        <div class="gallery-item rounded-xl reveal" onclick="openModal('../images/picture-7.png')"><img src="../images/picture-7.png" alt="License 6"></div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="section-header">
-        <span class="label animate-in">Get in Touch</span>
-        <h2 class="display-section animate-in animate-delay-1">Contact Us</h2>
+  <section class="relative py-20 border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-medium mb-6 reveal">Partners</div>
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal">We Are Trusted By</h2>
       </div>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <div class="contact-item animate-in animate-delay-1">
-            <div class="contact-item-label">Address</div>
-            <div class="contact-item-value">219, Jalan S2 B10, Seremban 2,<br>70300 Seremban, Negeri Sembilan</div>
-          </div>
-          <div class="contact-item animate-in animate-delay-2">
-            <div class="contact-item-label">Phone</div>
-            <div class="contact-item-value">+606-6016007</div>
-          </div>
-          <div class="contact-item animate-in animate-delay-3">
-            <div class="contact-item-label">Email</div>
-            <div class="contact-item-value">admin@ubbim.com</div>
+      <div class="flex flex-wrap justify-center items-center gap-12 md:gap-16">
+        <img src="../images/cenviro.png" alt="Cenviro" class="client-logo">
+        <img src="../images/cidb-1.png" alt="CIDB" class="client-logo">
+        <img src="../images/north-2.png" alt="North" class="client-logo">
+        <img src="../images/fgv.png" alt="FGV" class="client-logo">
+        <img src="../images/mahb.png" alt="MAHB" class="client-logo">
+        <img src="../images/mof-1.png" alt="MOF" class="client-logo">
+        <img src="../images/mindef-1.png" alt="MINDEF" class="client-logo">
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="relative py-32 overflow-hidden">
+    <div class="absolute inset-0"><div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/5 rounded-full blur-[150px]"></div></div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-6 reveal">Get in Touch</div>
+          <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal">Contact <span class="text-gradient-agent">Us</span></h2>
+          <div class="space-y-6 mt-10">
+            <div class="glass rounded-xl p-6 border border-white/10 reveal"><div class="text-xs text-emerald-400 font-medium uppercase tracking-wider mb-2">Address</div><div class="text-white">219, Jalan S2 B10, Seremban 2,<br>70300 Seremban, Negeri Sembilan</div></div>
+            <div class="glass rounded-xl p-6 border border-white/10 reveal"><div class="text-xs text-sky-400 font-medium uppercase tracking-wider mb-2">Phone</div><div class="text-white">+606-6016007</div></div>
+            <div class="glass rounded-xl p-6 border border-white/10 reveal"><div class="text-xs text-violet-400 font-medium uppercase tracking-wider mb-2">Email</div><div class="text-white">admin@ubbim.com</div></div>
           </div>
         </div>
-        <div class="contact-map animate-in animate-delay-2">
+        <div class="glass rounded-2xl border border-white/10 overflow-hidden aspect-video reveal">
           <iframe allowfullscreen="" frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB7QWkvlxV39ZsyKvhZRjPGVqlJFvxxNkw&amp;q=No 219, Jalan S2B10, Uptown Avenue Seremban 2, 70300 Seremban, Negeri Sembilan"></iframe>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="container">
-      <p class="footer-text">© Copyright 2024 UBBIM - All Rights Reserved</p>
+  <footer class="border-t border-white/5 py-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-3"><img src="../images/title-9.png" alt="UBBIM" class="h-8 w-auto brightness-0 invert"></div>
+      <div class="text-slate-600 text-sm">© 2024 UBBIM - All Rights Reserved</div>
+      <div class="flex gap-6">
+        <a href="built-environment-services.html" class="text-sm text-slate-500 hover:text-white transition-colors">Services</a>
+        <a href="projects.html" class="text-sm text-slate-500 hover:text-white transition-colors">Projects</a>
+        <a href="awards.html" class="text-sm text-slate-500 hover:text-white transition-colors">Awards</a>
+        <a href="index.html#contact" class="text-sm text-slate-500 hover:text-white transition-colors">Contact</a>
+      </div>
     </div>
   </footer>
 
   <div class="modal" id="imageModal" onclick="closeModal()">
     <button class="modal-close" onclick="closeModal()">&times;</button>
-    <div class="modal-content">
-      <img alt="" id="modalImage" src="">
-    </div>
+    <div class="modal-content"><img alt="" id="modalImage" src=""></div>
   </div>
 
   <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-
-    const navToggle = document.getElementById('navToggle');
-    const navbarNav = document.getElementById('navbarNav');
-    navToggle.addEventListener('click', () => {
-      navbarNav.classList.toggle('active');
-    });
-
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+    window.addEventListener('scroll', () => navbar.classList.toggle('glass-strong', window.scrollY > 50));
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
       });
-    }, observerOptions);
-
-    document.querySelectorAll('.animate-in').forEach(el => {
-      observer.observe(el);
     });
-
-    function openModal(src) {
-      document.getElementById('modalImage').src = src;
-      document.getElementById('imageModal').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      document.getElementById('imageModal').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
+    gsap.registerPlugin(ScrollTrigger);
+    document.querySelectorAll('.reveal').forEach(el => {
+      gsap.to(el, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' } });
     });
+    gsap.to('.aurora-blob', { yPercent: 20, ease: 'none', scrollTrigger: { trigger: 'body', start: 'top top', end: 'bottom bottom', scrub: 1 } });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); mobileMenu.classList.add('hidden'); }
+      });
+    });
+    function openModal(src) { document.getElementById('modalImage').src = src; document.getElementById('imageModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeModal() { document.getElementById('imageModal').classList.remove('active'); document.body.style.overflow = ''; }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
   </script>
 </body>
 </html>
