@@ -82,9 +82,10 @@
     </div>
   </nav>
 
-  <section class="hero relative min-h-screen flex items-center justify-center overflow-hidden">
+  <section class="hero relative min-h-screen flex items-center justify-center overflow-hidden" id="heroSection">
     <div class="aurora"><div class="aurora-blob"></div><div class="aurora-blob"></div><div class="aurora-blob"></div></div>
     <div class="absolute inset-0 grid-pattern opacity-30"></div>
+    <canvas id="tetris-bg" class="absolute inset-0 w-full h-full z-[1] opacity-40"></canvas>
     <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center pt-20">
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-10 reveal">
         <span class="w-2 h-2 rounded-full bg-emerald-400 status-dot"></span>
@@ -422,5 +423,175 @@
     })();
   </script>
   <script src="js/animations.js"></script>
-$1
+
+  <script>
+    // Tetris Background Game
+    (function() {
+      const canvas = document.getElementById('tetris-bg');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const hero = document.getElementById('heroSection');
+
+      function resize() {
+        canvas.width = hero.offsetWidth;
+        canvas.height = hero.offsetHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      const COLS = 12;
+      let CELL = Math.floor(canvas.width / COLS);
+      const ROWS = Math.ceil(canvas.height / CELL) + 2;
+
+      const COLORS = [
+        null,
+        'rgba(52, 211, 153, 0.35)',   // I - emerald
+        'rgba(56, 189, 248, 0.35)',   // J - sky
+        'rgba(167, 139, 250, 0.35)',  // L - violet
+        'rgba(251, 191, 36, 0.35)',   // O - amber
+        'rgba(244, 114, 182, 0.30)',  // S - pink
+        'rgba(94, 234, 212, 0.30)',   // T - teal
+        'rgba(192, 132, 252, 0.30)'   // Z - purple
+      ];
+
+      const SHAPES = [
+        [],
+        [[0,0,0,0],[1,1,1,1],[0,0,0,0],[0,0,0,0]],
+        [[2,0,0],[2,2,2],[0,0,0]],
+        [[0,0,3],[3,3,3],[0,0,0]],
+        [[4,4],[4,4]],
+        [[0,5,5],[5,5,0],[0,0,0]],
+        [[0,6,0],[6,6,6],[0,0,0]],
+        [[7,7,0],[0,7,7],[0,0,0]]
+      ];
+
+      let board = Array.from({length: ROWS}, () => Array(COLS).fill(0));
+      let piece = null;
+      let dropCounter = 0;
+      let dropInterval = 800;
+      let lastTime = 0;
+      let gameOver = false;
+
+      function randomPiece() {
+        const id = (Math.floor(Math.random() * 7) + 1);
+        const shape = SHAPES[id].map(r => [...r]);
+        return { id, shape, x: Math.floor(COLS / 2) - Math.floor(shape[0].length / 2), y: 0 };
+      }
+
+      function rotate(p) {
+        const rotated = p.shape[0].map((_, i) => p.shape.map(row => row[i]).reverse());
+        const prev = p.shape;
+        p.shape = rotated;
+        if (collide(board, p)) p.shape = prev;
+      }
+
+      function collide(b, p) {
+        for (let y = 0; y < p.shape.length; y++) {
+          for (let x = 0; x < p.shape[y].length; x++) {
+            if (p.shape[y][x] !== 0 &&
+                (b[y + p.y] && b[y + p.y][x + p.x]) !== 0) return true;
+          }
+        }
+        return false;
+      }
+
+      function merge(b, p) {
+        p.shape.forEach((row, y) => {
+          row.forEach((val, x) => {
+            if (val !== 0) b[y + p.y][x + p.x] = val;
+          });
+        });
+      }
+
+      function sweep() {
+        let rowCount = 0;
+        outer: for (let y = board.length - 1; y > 0; y--) {
+          for (let x = 0; x < board[y].length; x++) {
+            if (board[y][x] === 0) continue outer;
+          }
+          board.splice(y, 1);
+          board.unshift(Array(COLS).fill(0));
+          rowCount++;
+          y++;
+        }
+        if (rowCount > 0) dropInterval = Math.max(200, 800 - rowCount * 50);
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        CELL = Math.floor(canvas.width / COLS);
+
+        // Draw board
+        board.forEach((row, y) => {
+          row.forEach((val, x) => {
+            if (val !== 0) {
+              ctx.fillStyle = COLORS[val];
+              ctx.fillRect(x * CELL, y * CELL, CELL - 1, CELL - 1);
+            }
+          });
+        });
+
+        // Draw piece
+        if (piece) {
+          piece.shape.forEach((row, y) => {
+            row.forEach((val, x) => {
+              if (val !== 0) {
+                ctx.fillStyle = COLORS[val];
+                ctx.shadowColor = COLORS[val].replace('0.35', '0.6').replace('0.30', '0.5');
+                ctx.shadowBlur = 10;
+                ctx.fillRect((piece.x + x) * CELL, (piece.y + y) * CELL, CELL - 1, CELL - 1);
+                ctx.shadowBlur = 0;
+              }
+            });
+          });
+        }
+      }
+
+      function update(time = 0) {
+        if (gameOver) return;
+        const delta = time - lastTime;
+        lastTime = time;
+        dropCounter += delta;
+
+        if (dropCounter > dropInterval) {
+          if (!piece) piece = randomPiece();
+          piece.y++;
+          if (collide(board, piece)) {
+            piece.y--;
+            merge(board, piece);
+            sweep();
+            piece = randomPiece();
+            if (collide(board, piece)) {
+              board = Array.from({length: ROWS}, () => Array(COLS).fill(0));
+              dropInterval = 800;
+            }
+          }
+          dropCounter = 0;
+        }
+        draw();
+        requestAnimationFrame(update);
+      }
+
+      piece = randomPiece();
+      requestAnimationFrame(update);
+
+      document.addEventListener('keydown', (e) => {
+        if (!piece) return;
+        if (e.key === 'ArrowLeft') { piece.x--; if (collide(board, piece)) piece.x++; }
+        else if (e.key === 'ArrowRight') { piece.x++; if (collide(board, piece)) piece.x--; }
+        else if (e.key === 'ArrowDown') { piece.y++; if (collide(board, piece)) piece.y--; dropCounter = 0; }
+        else if (e.key === 'ArrowUp' || e.key === 'x') { rotate(piece); }
+        else if (e.key === 'z') {
+          const rotated = piece.shape[0].map((_, i) => piece.shape.map(row => row[row.length - 1 - i]));
+          const prev = piece.shape; piece.shape = rotated; if (collide(board, piece)) piece.shape = prev;
+        }
+        else if (e.key === ' ') {
+          e.preventDefault();
+          while (!collide(board, piece)) piece.y++;
+          piece.y--; dropCounter = dropInterval;
+        }
+      });
+    })();
+  </script>
+</body>
 </html>
