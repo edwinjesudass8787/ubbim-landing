@@ -26,3 +26,7 @@ build/
 # Agent workspace
 .agents/
 skills-lock.json
+
+# Vercel
+.vercel/
+.vercel
