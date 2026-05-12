@@ -5,7 +5,7 @@
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width, initial-scale=1, minimum-scale=1" name="viewport">
   <link href="../images/title-9.png" rel="shortcut icon" type="image/x-icon">
-  <meta content="CIDB-endorsed CPD training and professional development for the built environment. Earn CCD points with ACPM Academy." name="description">
+  <meta content="CPD training and professional development for the built environment. ACPM Academy powered by UBBIM." name="description">
   <title>Training & Development | UBBIM</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,13 +25,16 @@
   </script>
   <link href="../css/shared.css" rel="stylesheet">
 </head>
-<body class="antialiased">
+<body class="antialiased cursor-enabled">
   <script async="" src="../js/1011292769853518"></script>
   <script async="" src="../js/fbevents.js"></script>
   <script async="" src="../js/js"></script>
   <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-Y8PSZEXZYD');</script>
   <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '1011292769853518');fbq('track', 'PageView');</script>
   <noscript><img height="1" src="../images/tr" style="display:none" width="1"></noscript>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursor-dot"></div>
 
   <div class="noise"></div>
 
@@ -77,13 +80,13 @@
     <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-6 reveal">Services</div>
       <h1 class="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-white leading-[0.95] mb-8 reveal">Training & <span class="text-gradient-agent">Development</span></h1>
-      <p class="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 leading-relaxed reveal">Empowering Construction Professionals Through CIDB-Endorsed CPD Learning</p>
+      <p class="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 leading-relaxed reveal">Empowering Construction Professionals Through Continuous CPD Learning</p>
     </div>
   </section>
 
   <section class="relative py-20 overflow-hidden">
     <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-      <p class="text-lg md:text-xl text-slate-400 leading-relaxed reveal">UBBIM is the technology developer behind ACPM Academy — a Continuing Professional Development (CPD) learning and development platform whitelabeled for the Association of Construction Project Managers Malaysia (ACPM). As a CIDB-endorsed training body, we deliver accredited courses that help construction professionals earn CCD points and advance their careers.</p>
+      <p class="text-lg md:text-xl text-slate-400 leading-relaxed reveal">UBBIM is the technology developer behind ACPM Academy — a Continuing Professional Development (CPD) learning and development platform whitelabeled for the Association of Construction Project Managers Malaysia (ACPM). Built for the continuous training and development of ACPM members and construction professionals, our platform helps learners advance their careers through structured professional education.</p>
     </div>
   </section>
 
@@ -118,10 +121,10 @@
           </div>
           <div class="p-8">
             <div class="flex items-start justify-between mb-4">
-              <h3 class="text-2xl font-display font-bold text-white">CIDB-Endorsed Training</h3>
+              <h3 class="text-2xl font-display font-bold text-white">Professional Training</h3>
               <span class="text-xs text-slate-500 font-mono">02</span>
             </div>
-            <p class="text-slate-400 leading-relaxed">As a CIDB-endorsed training provider, our programmes meet the highest standards set by the Construction Industry Development Board Malaysia. Gain recognised credentials that matter in the industry.</p>
+            <p class="text-slate-400 leading-relaxed">Our programmes are designed to meet industry standards and best practices. Gain recognised credentials that matter in the construction industry and advance your professional standing.</p>
           </div>
         </div>
         <div class="service-card glass rounded-2xl overflow-hidden border border-white/10 reveal">
@@ -175,8 +178,8 @@
           <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-6">
             <svg class="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </div>
-          <h3 class="text-xl font-display font-bold text-white mb-3">CIDB Endorsed</h3>
-          <p class="text-slate-400 leading-relaxed">Officially recognised by the Construction Industry Development Board Malaysia as an authorised training provider.</p>
+          <h3 class="text-xl font-display font-bold text-white mb-3">Industry Aligned</h3>
+          <p class="text-slate-400 leading-relaxed">Curriculum aligned with construction industry standards and professional development requirements for the built environment.</p>
         </div>
         <div class="glass rounded-2xl p-8 border border-white/10 reveal text-center">
           <div class="w-14 h-14 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center mx-auto mb-6">
@@ -246,6 +249,37 @@
     document.querySelectorAll('.reveal').forEach(el => {
       gsap.to(el, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' } });
     });
+    // Custom Cursor
+    (function() {
+      const cursor = document.getElementById('cursor');
+      const cursorDot = document.getElementById('cursor-dot');
+      if (!cursor || !cursorDot) return;
+      let mouseX = 0, mouseY = 0;
+      let cursorX = 0, cursorY = 0;
+      let dotX = 0, dotY = 0;
+      document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+      function animateCursor() {
+        cursorX += (mouseX - cursorX) * 0.15;
+        cursorY += (mouseY - cursorY) * 0.15;
+        dotX += (mouseX - dotX) * 0.5;
+        dotY += (mouseY - dotY) * 0.5;
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+        cursorDot.style.left = dotX + 'px';
+        cursorDot.style.top = dotY + 'px';
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+      document.querySelectorAll('a, button, .service-card, .agent-card, [onclick], input, textarea, select, .gallery-item').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+      });
+      if ('ontouchstart' in window) {
+        cursor.style.display = 'none';
+        cursorDot.style.display = 'none';
+        document.querySelectorAll('*').forEach(el => el.style.cursor = 'auto');
+      }
+    })();
   </script>
 </body>
 </html>

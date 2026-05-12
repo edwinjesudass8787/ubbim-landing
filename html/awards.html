@@ -25,13 +25,16 @@
   </script>
   <link href="../css/shared.css" rel="stylesheet">
 </head>
-<body class="antialiased">
+<body class="antialiased cursor-enabled">
   <script async="" src="../js/1011292769853518"></script>
   <script async="" src="../js/fbevents.js"></script>
   <script async="" src="../js/js"></script>
   <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-Y8PSZEXZYD');</script>
   <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '1011292769853518');fbq('track', 'PageView');</script>
   <noscript><img height="1" src="../images/tr" style="display:none" width="1"></noscript>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursor-dot"></div>
 
   <div class="noise"></div>
 
@@ -224,6 +227,37 @@
     function openModal(src) { document.getElementById('modalImage').src = src; document.getElementById('imageModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
     function closeModal() { document.getElementById('imageModal').classList.remove('active'); document.body.style.overflow = ''; }
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    // Custom Cursor
+    (function() {
+      const cursor = document.getElementById('cursor');
+      const cursorDot = document.getElementById('cursor-dot');
+      if (!cursor || !cursorDot) return;
+      let mouseX = 0, mouseY = 0;
+      let cursorX = 0, cursorY = 0;
+      let dotX = 0, dotY = 0;
+      document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+      function animateCursor() {
+        cursorX += (mouseX - cursorX) * 0.15;
+        cursorY += (mouseY - cursorY) * 0.15;
+        dotX += (mouseX - dotX) * 0.5;
+        dotY += (mouseY - dotY) * 0.5;
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+        cursorDot.style.left = dotX + 'px';
+        cursorDot.style.top = dotY + 'px';
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+      document.querySelectorAll('a, button, .service-card, .agent-card, [onclick], input, textarea, select, .gallery-item').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+      });
+      if ('ontouchstart' in window) {
+        cursor.style.display = 'none';
+        cursorDot.style.display = 'none';
+        document.querySelectorAll('*').forEach(el => el.style.cursor = 'auto');
+      }
+    })();
   </script>
 </body>
 </html>
