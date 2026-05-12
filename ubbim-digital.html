@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UBBIM Digital — Agentic AI & Enterprise Solutions</title>
+    <meta name="description" content="UBBIM Digital builds autonomous AI agent systems and custom software for forward-thinking enterprises.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        ink: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            900: '#020617',
+                            950: '#01040f',
+                        },
+                        electric: {
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                        },
+                        neon: {
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                        },
+                        agent: {
+                            400: '#34d399',
+                            500: '#10b981',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --cursor-size: 20px;
+            --cursor-hover-size: 60px;
+        }
+
+        * {
+            cursor: none;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #01040f;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--cursor-size);
+            height: var(--cursor-size);
+            border: 2px solid #38bdf8;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, background 0.3s;
+            mix-blend-mode: difference;
+        }
+
+        .cursor.hover {
+            width: var(--cursor-hover-size);
+            height: var(--cursor-hover-size);
+            background: rgba(56, 189, 248, 0.1);
+            border-color: #8b5cf6;
+        }
+
+        .cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 6px;
+            background: #38bdf8;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Noise Overlay */
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9000;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        /* Aurora Background */
+        .aurora {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+        }
+
+        .aurora-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: aurora-float 20s infinite ease-in-out;
+        }
+
+        .aurora-blob:nth-child(1) {
+            width: 500px;
+            height: 500px;
+            background: #0ea5e9;
+            top: -10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+
+        .aurora-blob:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            background: #8b5cf6;
+            top: 40%;
+            right: -10%;
+            animation-delay: -5s;
+        }
+
+        .aurora-blob:nth-child(3) {
+            width: 300px;
+            height: 300px;
+            background: #10b981;
+            bottom: -10%;
+            left: 30%;
+            animation-delay: -10s;
+        }
+
+        @keyframes aurora-float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -50px) scale(1.1); }
+            50% { transform: translate(-30px, 30px) scale(0.9); }
+            75% { transform: translate(20px, 20px) scale(1.05); }
+        }
+
+        /* Typography */
+        .font-display { font-family: 'Space Grotesk', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-gradient-agent {
+            background: linear-gradient(135deg, #34d399 0%, #38bdf8 50%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-gradient-shine {
+            background: linear-gradient(90deg, #34d399, #38bdf8, #818cf8, #c084fc, #34d399);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shine 8s linear infinite;
+        }
+
+        @keyframes shine {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 300% 50%; }
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-strong {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Button Styles */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #10b981, #0ea5e9, #8b5cf6);
+            background-size: 200% 200%;
+            animation: gradient-shift 5s ease infinite;
+            transition: all 0.3s ease;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px -10px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-outline {
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(14, 165, 233, 0.1), rgba(139, 92, 246, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-outline:hover::before {
+            opacity: 1;
+        }
+
+        .btn-outline:hover {
+            border-color: rgba(139, 92, 246, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Card Styles */
+        .service-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(56, 189, 248, 0.06), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(139, 92, 246, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Agent Card Specific */
+        .agent-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(52, 211, 153, 0.1);
+        }
+
+        .agent-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(52, 211, 153, 0.08), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .agent-card:hover::before {
+            opacity: 1;
+        }
+
+        .agent-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(52, 211, 153, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px -5px rgba(52, 211, 153, 0.1);
+        }
+
+        /* Grid Pattern */
+        .grid-pattern {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #01040f;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        /* Marquee */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* Line decoration */
+        .line-deco {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.3), transparent);
+        }
+
+        /* Agent Flow Animation */
+        .agent-node {
+            animation: agent-pulse 3s ease-in-out infinite;
+        }
+
+        .agent-node:nth-child(2) { animation-delay: 0.5s; }
+        .agent-node:nth-child(3) { animation-delay: 1s; }
+        .agent-node:nth-child(4) { animation-delay: 1.5s; }
+        .agent-node:nth-child(5) { animation-delay: 2s; }
+
+        @keyframes agent-pulse {
+            0%, 100% { 
+                box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.4);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 20px 5px rgba(52, 211, 153, 0.2);
+                transform: scale(1.05);
+            }
+        }
+
+        .agent-connection {
+            stroke-dasharray: 5, 5;
+            animation: flow-line 2s linear infinite;
+        }
+
+        @keyframes flow-line {
+            0% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -20; }
+        }
+
+        /* Status indicators */
+        .status-dot {
+            animation: status-blink 2s ease-in-out infinite;
+        }
+
+        @keyframes status-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Typewriter effect */
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid #34d399;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #34d399 }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-dot" id="cursor-dot"></div>
+    
+    <!-- Noise Overlay -->
+    <div class="noise"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="flex items-center gap-3 group" data-cursor="hover">
+                    <div class="relative w-10 h-10">
+                        <div class="absolute inset-0 bg-gradient-to-br from-emerald-500 via-sky-500 to-violet-500 rounded-xl rotate-45 scale-75 group-hover:scale-90 group-hover:rotate-90 transition-all duration-500"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg font-display">U</span>
+                        </div>
+                    </div>
+                    <span class="text-white font-semibold text-lg tracking-tight font-display">UBBIM Digital</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#agentic-ai" class="text-sm text-slate-400 hover:text-white transition-colors relative group" data-cursor="hover">
+                        Agentic AI
+                        <span class="absolute -bottom-1 left-0 w-0 h-px bg-emerald-400 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#services" class="text-sm text-slate-400 hover:text-white transition-colors relative group" data-cursor="hover">
+                        Services
+                        <span class="absolute -bottom-1 left-0 w-0 h-px bg-sky-400 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#approach" class="text-sm text-slate-400 hover:text-white transition-colors relative group" data-cursor="hover">
+                        Approach
+                        <span class="absolute -bottom-1 left-0 w-0 h-px bg-violet-400 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#contact" class="text-sm text-slate-400 hover:text-white transition-colors relative group" data-cursor="hover">
+                        Contact
+                        <span class="absolute -bottom-1 left-0 w-0 h-px bg-sky-400 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                </div>
+
+                <a href="mailto:admin@ubbim.com" class="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-full btn-primary text-white text-sm font-medium" data-cursor="hover">
+                    <span>Get in Touch</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+
+                <button id="mobile-menu-btn" class="md:hidden text-white p-2" data-cursor="hover">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="md:hidden hidden glass-strong border-t border-white/5">
+            <div class="px-6 py-6 space-y-4">
+                <a href="#agentic-ai" class="block text-slate-300 hover:text-white transition-colors">Agentic AI</a>
+                <a href="#services" class="block text-slate-300 hover:text-white transition-colors">Services</a>
+                <a href="#approach" class="block text-slate-300 hover:text-white transition-colors">Approach</a>
+                <a href="#contact" class="block text-slate-300 hover:text-white transition-colors">Contact</a>
+                <a href="mailto:admin@ubbim.com" class="inline-block mt-4 px-6 py-2.5 rounded-full btn-primary text-white text-sm font-medium">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="aurora">
+            <div class="aurora-blob"></div>
+            <div class="aurora-blob"></div>
+            <div class="aurora-blob"></div>
+        </div>
+
+        <div class="absolute inset-0 grid-pattern opacity-30"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center pt-20">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-10 reveal" data-delay="0">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 status-dot"></span>
+                <span class="text-sm text-slate-300">Building Autonomous Agent Systems</span>
+            </div>
+
+            <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] mb-8 reveal" data-delay="0.1">
+                Autonomous AI<br />
+                <span class="text-gradient-shine">That Acts, Not Reacts</span>
+            </h1>
+
+            <p class="max-w-3xl mx-auto text-lg md:text-xl text-slate-400 leading-relaxed mb-12 reveal" data-delay="0.2">
+                UBBIM Digital engineers <strong class="text-white font-semibold">agentic AI systems</strong>—autonomous agents that perceive, reason, decide, and execute. We don't just integrate AI; we build digital workforces that operate independently and intelligently.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-20 reveal" data-delay="0.3">
+                <a href="#agentic-ai" class="px-8 py-4 rounded-full btn-primary text-white font-semibold inline-flex items-center justify-center gap-2" data-cursor="hover">
+                    Explore Agentic AI
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                </a>
+                <a href="mailto:admin@ubbim.com" class="px-8 py-4 rounded-full btn-outline text-white font-semibold inline-flex items-center justify-center gap-2" data-cursor="hover">
+                    Deploy Your First Agent
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto reveal" data-delay="0.4">
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-white font-display">10M+</div>
+                    <div class="text-sm text-slate-500 mt-1">Agent Actions/Day</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-white font-display">99.9%</div>
+                    <div class="text-sm text-slate-500 mt-1">Uptime</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-white font-display">24/7</div>
+                    <div class="text-sm text-slate-500 mt-1">Autonomous Ops</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-white font-display">&lt;50ms</div>
+                    <div class="text-sm text-slate-500 mt-1">Decision Latency</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+            <span class="text-xs text-slate-500 uppercase tracking-widest">Scroll</span>
+            <div class="w-px h-12 bg-gradient-to-b from-slate-500 to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- Marquee Section -->
+    <div class="border-y border-white/5 py-6 bg-ink-950/50 backdrop-blur-sm">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">AGENTIC AI</span>
+                <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+                <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">AUTONOMOUS AGENTS</span>
+                <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+                <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">MULTI-AGENT ORCHESTRATION</span>
+                <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+                <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">CUSTOM SOFTWARE</span>
+                <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+                <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">AGENTIC AI</span>
+                <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+                <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">AUTONOMOUS AGENTS</span>
+                <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+                <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">MULTI-AGENT ORCHESTRATION</span>
+                <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+                <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">CUSTOM SOFTWARE</span>
+                <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agentic AI Section -->
+    <section id="agentic-ai" class="relative py-32 overflow-hidden">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-[150px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-6 reveal">
+                        Agentic AI
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal">
+                        From automation to <span class="text-gradient-agent">autonomy</span>
+                    </h2>
+                    <p class="text-lg text-slate-400 leading-relaxed mb-8 reveal">
+                        Traditional AI waits for commands. <strong class="text-white">Agentic AI takes initiative.</strong> We build autonomous agents that perceive their environment, set goals, make decisions, and execute complex workflows—continuously learning and adapting without human intervention.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex gap-4 reveal">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Goal-Oriented Autonomy</h4>
+                                <p class="text-slate-400 text-sm">Agents set sub-goals, prioritize tasks, and self-correct when encountering obstacles.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 reveal">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Multi-Agent Collaboration</h4>
+                                <p class="text-slate-400 text-sm">Orchestrate swarms of specialized agents that communicate, delegate, and solve problems collectively.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 reveal">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Tool Use & Integration</h4>
+                                <p class="text-slate-400 text-sm">Agents autonomously invoke APIs, query databases, send messages, and manipulate tools to complete objectives.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agent Visual -->
+                <div class="relative reveal">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-emerald-500/20 to-sky-500/20 rounded-3xl blur-2xl opacity-50"></div>
+                    <div class="relative glass rounded-2xl border border-white/10 overflow-hidden p-8">
+                        <!-- Agent Flow Visualization -->
+                        <div class="flex flex-col items-center gap-6">
+                            <!-- Master Agent -->
+                            <div class="agent-node w-full glass rounded-xl p-4 border border-emerald-500/30">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="text-white font-semibold text-sm">Orchestrator Agent</div>
+                                        <div class="text-emerald-400 text-xs font-mono">Status: ACTIVE • Processing</div>
+                                    </div>
+                                    <div class="status-dot w-2 h-2 rounded-full bg-emerald-400"></div>
+                                </div>
+                            </div>
+
+                            <!-- Connection Lines -->
+                            <div class="flex justify-center gap-8 w-full px-8">
+                                <svg class="w-full h-12" viewBox="0 0 300 48">
+                                    <line x1="75" y1="0" x2="75" y2="48" class="agent-connection" stroke="#34d399" stroke-width="1" opacity="0.4"/>
+                                    <line x1="150" y1="0" x2="150" y2="48" class="agent-connection" stroke="#38bdf8" stroke-width="1" opacity="0.4"/>
+                                    <line x1="225" y1="0" x2="225" y2="48" class="agent-connection" stroke="#a78bfa" stroke-width="1" opacity="0.4"/>
+                                </svg>
+                            </div>
+
+                            <!-- Sub Agents -->
+                            <div class="grid grid-cols-3 gap-4 w-full">
+                                <div class="agent-node glass rounded-xl p-3 border border-sky-500/20 text-center">
+                                    <div class="w-8 h-8 rounded-lg bg-sky-500/20 flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="text-white text-xs font-semibold">Research Agent</div>
+                                    <div class="text-sky-400 text-[10px] font-mono mt-1">Gathering data...</div>
+                                </div>
+                                <div class="agent-node glass rounded-xl p-3 border border-violet-500/20 text-center">
+                                    <div class="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="text-white text-xs font-semibold">Analysis Agent</div>
+                                    <div class="text-violet-400 text-[10px] font-mono mt-1">Processing...</div>
+                                </div>
+                                <div class="agent-node glass rounded-xl p-3 border border-amber-500/20 text-center">
+                                    <div class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="text-white text-xs font-semibold">Action Agent</div>
+                                    <div class="text-amber-400 text-[10px] font-mono mt-1">Executing...</div>
+                                </div>
+                            </div>
+
+                            <!-- Log Output -->
+                            <div class="w-full glass rounded-lg p-3 border border-white/5 font-mono text-[10px] text-slate-400 mt-4">
+                                <div class="text-emerald-400">[14:32:01] Orchestrator: Goal received — "Analyze Q4 sales data"</div>
+                                <div class="text-sky-400">[14:32:02] Research Agent: Querying CRM database...</div>
+                                <div class="text-sky-400">[14:32:04] Research Agent: 2,847 records retrieved</div>
+                                <div class="text-violet-400">[14:32:05] Analysis Agent: Running predictive models...</div>
+                                <div class="text-amber-400">[14:32:08] Action Agent: Report generated & emailed</div>
+                                <div class="text-emerald-400 typing-cursor">[14:32:09] Orchestrator: Task complete. Awaiting next objective.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="line-deco"></div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="relative py-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="max-w-3xl mb-20">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-medium mb-6 reveal">
+                    Our Services
+                </div>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-6 reveal">
+                    Agentic systems & <span class="text-gradient">enterprise solutions</span>
+                </h2>
+                <p class="text-lg text-slate-400 leading-relaxed reveal">
+                    We architect autonomous AI ecosystems alongside robust custom software—everything your enterprise needs to operate intelligently at scale.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6" id="services-grid">
+                <!-- Agentic AI Systems -->
+                <div class="agent-card glass rounded-2xl p-8 md:p-10 reveal" data-cursor="hover">
+                    <div class="flex items-start justify-between mb-8">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-600/20 flex items-center justify-center border border-emerald-500/20">
+                            <svg class="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xs text-slate-500 font-mono">01</span>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-white mb-4">Agentic AI Systems</h3>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        Build autonomous agents that perceive, decide, and act. From single-task agents to complex multi-agent orchestration, we create digital workforces that handle entire workflows end-to-end.
+                    </p>
+                    <ul class="space-y-2 mb-8">
+                        <li class="flex items-center gap-2 text-sm text-slate-300">
+                            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Autonomous Task Execution Agents
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300">
+                            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Multi-Agent Collaboration Frameworks
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300">
+                            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Self-Improving Agent Loops
+                        </li>
+                    </ul>
+                    <a href="mailto:admin@ubbim.com" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors text-sm font-medium" data-cursor="hover">
+                        Build autonomous agents
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- AI Integration -->
+                <div class="service-card glass rounded-2xl p-8 md:p-10 reveal" data-cursor="hover">
+                    <div class="flex items-start justify-between mb-8">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-500/20 to-blue-600/20 flex items-center justify-center border border-sky-500/20">
+                            <svg class="w-7 h-7 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xs text-slate-500 font-mono">02</span>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-white mb-4">Enterprise AI Integration</h3>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        Seamlessly embed LLMs, computer vision, and predictive models into your operational stack. We integrate AI that enhances—not disrupts—your existing workflows.
+                    </p>
+                    <ul class="space-y-2 mb-8">
+                        <li class="flex items-center gap-2 text-sm text-slate-300">
+                            <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Large Language Model Integration
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300">
+                            <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Predictive Analytics & Forecasting
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300">
+                            <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Intelligent Process Automation
+                        </li>
+                    </ul>
+                    <a href="mailto:admin@ubbim.com" class="inline-flex items-center gap-2 text-sky-400 hover:text-sky-300 transition-colors text-sm font-medium" data-cursor="hover">
+                        Integrate AI into your stack
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Custom Software -->
+                <div class="service-card glass rounded-2xl p-8 md:p-10 reveal" data-cursor="hover">
+                    <div class="flex items-start justify-between mb-8">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500/20 to-purple-600/20 flex items-center justify-center border border-violet-500/20">
+                            <svg class="w-7 h-7 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xs text-slate-500 font-mono">03</span>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-white mb-4">Custom Software Solutions</h3>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        When off-the-shelf fails, we build. Our engineering team crafts high-performance applications with clean architecture, designed to evolve as your business grows.
+                    </p>
+                    <ul class="space-y-2 mb-8">
+                        <li class="flex items-center gap-2 text-sm text-slate-300">
+                            <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Bespoke Web & Mobile Applications
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300">
+                            <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            API Architecture & Microservices
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300">
+                            <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Legacy System Modernization
+                        </li>
+                    </ul>
+                    <a href="mailto:admin@ubbim.com" class="inline-flex items-center gap-2 text-violet-400 hover:text-violet-300 transition-colors text-sm font-medium" data-cursor="hover">
+                        Start building
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Cloud & Data -->
+                <div class="service-card glass rounded-2xl p-8 md:p-10 reveal" data-cursor="hover">
+                    <div class="flex items-start justify-between mb-8">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-orange-600/20 flex items-center justify-center border border-amber-500/20">
+                            <svg class="w-7 h-7 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xs text-slate-500 font-mono">04</span>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-white mb-4">Cloud & Data Infrastructure</h3>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        Scalable, resilient cloud architecture and real-time data pipelines that power intelligent systems. We build the foundation your agents need to operate 24/7.
+                    </p>
+                    <ul class="space-y-2 mb-8">
+                        <li class="flex items-center gap-2 text-sm text-slate-300">
+                            <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Multi-Cloud & Hybrid Architecture
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300">
+                            <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Real-time Data Pipelines
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300">
+                            <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Agent Observation & Telemetry
+                        </li>
+                    </ul>
+                    <a href="mailto:admin@ubbim.com" class="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 transition-colors text-sm font-medium" data-cursor="hover">
+                        Scale your infrastructure
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="line-deco"></div>
+    </div>
+
+    <!-- Approach Section -->
+    <section id="approach" class="relative py-32 overflow-hidden">
+        <div class="absolute top-1/2 left-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[120px] -translate-y-1/2"></div>
+        <div class="absolute top-1/3 right-0 w-[400px] h-[400px] bg-sky-500/5 rounded-full blur-[120px]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs font-medium mb-6 reveal">
+                        Our Approach
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal">
+                        Engineering agents that <span class="text-gradient">think & act</span>
+                    </h2>
+                    <p class="text-lg text-slate-400 leading-relaxed mb-10 reveal">
+                        Building agentic systems requires a fundamentally different approach. We architect autonomy—designing agents with clear goals, robust reasoning, and the ability to adapt in real-time.
+                    </p>
+
+                    <div class="space-y-8">
+                        <div class="flex gap-4 reveal">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white font-bold text-sm">1</div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Agent Strategy & Design</h4>
+                                <p class="text-slate-400 text-sm">Define agent personas, capabilities, tool access, and decision boundaries.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 reveal">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center text-white font-bold text-sm">2</div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Reasoning Architecture</h4>
+                                <p class="text-slate-400 text-sm">Implement ReAct, Chain-of-Thought, or custom reasoning frameworks.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 reveal">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm">3</div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Tool Integration & Orchestration</h4>
+                                <p class="text-slate-400 text-sm">Connect agents to APIs, databases, and enterprise systems.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 reveal">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white font-bold text-sm">4</div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Deploy & Observe</h4>
+                                <p class="text-slate-400 text-sm">Launch agents with full telemetry, human-in-the-loop safeguards, and continuous improvement.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative reveal">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-emerald-500/20 to-sky-500/20 rounded-3xl blur-2xl opacity-50"></div>
+                    <div class="relative glass rounded-2xl border border-white/10 overflow-hidden">
+                        <div class="flex items-center gap-2 px-4 py-3 border-b border-white/5 bg-white/5">
+                            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                            <span class="ml-2 text-xs text-slate-500 font-mono">agent-config.yaml</span>
+                        </div>
+                        <div class="p-6 font-mono text-sm leading-relaxed">
+                            <div><span class="text-slate-500"># UBBIM Agent Configuration</span></div>
+                            <div class="mt-2"><span class="text-purple-400">agent</span><span class="text-white">:</span></div>
+                            <div class="pl-4 text-slate-400">
+                                <span class="text-sky-300">name</span><span class="text-white">:</span> <span class="text-orange-300">"Sales Analyst"</span>
+                            </div>
+                            <div class="pl-4 text-slate-400">
+                                <span class="text-sky-300">type</span><span class="text-white">:</span> <span class="text-orange-300">"autonomous"</span>
+                            </div>
+                            <div class="pl-4 text-slate-400">
+                                <span class="text-sky-300">reasoning</span><span class="text-white">:</span> <span class="text-orange-300">"ReAct"</span>
+                            </div>
+                            <div class="pl-4 text-slate-400">
+                                <span class="text-sky-300">tools</span><span class="text-white">:</span>
+                            </div>
+                            <div class="pl-8 text-slate-400">
+                                - <span class="text-orange-300">"crm_query"</span>
+                            </div>
+                            <div class="pl-8 text-slate-400">
+                                - <span class="text-orange-300">"email_send"</span>
+                            </div>
+                            <div class="pl-8 text-slate-400">
+                                - <span class="text-orange-300">"slack_notify"</span>
+                            </div>
+                            <div class="pl-4 text-slate-400 mt-2">
+                                <span class="text-sky-300">autonomy</span><span class="text-white">:</span>
+                            </div>
+                            <div class="pl-8 text-slate-400">
+                                <span class="text-sky-300">level</span><span class="text-white">:</span> <span class="text-orange-300">"high"</span>
+                            </div>
+                            <div class="pl-8 text-slate-400">
+                                <span class="text-sky-300">human_loop</span><span class="text-white">:</span> <span class="text-emerald-400">false</span>
+                            </div>
+                            <div class="pl-4 text-slate-400 mt-2">
+                                <span class="text-sky-300">objective</span><span class="text-white">:</span> <span class="text-orange-300">"Monitor sales pipeline</span>
+                            </div>
+                            <div class="pl-4 text-orange-300">
+                                <span class="text-orange-300">and alert on anomalies"</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="line-deco"></div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="relative py-32 overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/5 rounded-full blur-[150px]"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-6 reveal">
+                Get Started
+            </div>
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-6 reveal">
+                Deploy your first <span class="text-gradient-agent">autonomous agent</span>
+            </h2>
+            <p class="text-lg text-slate-400 leading-relaxed mb-12 max-w-2xl mx-auto reveal">
+                Ready to build an AI workforce that operates independently? Let's architect your agentic future.
+            </p>
+
+            <div class="glass rounded-3xl p-8 md:p-12 border border-white/10 max-w-xl mx-auto reveal">
+                <div class="flex flex-col items-center gap-6">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-sky-500/20 flex items-center justify-center border border-emerald-500/20">
+                        <svg class="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-slate-500 text-sm mb-2">Send your enquiry to</p>
+                        <a href="mailto:admin@ubbim.com" class="text-2xl md:text-3xl font-display font-bold text-white hover:text-emerald-400 transition-colors" data-cursor="hover">
+                            admin@ubbim.com
+                        </a>
+                    </div>
+                    <a href="mailto:admin@ubbim.com" class="w-full px-8 py-4 rounded-full btn-primary text-white font-semibold inline-flex items-center justify-center gap-2 mt-4" data-cursor="hover">
+                        Start Building Agents
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-12 bg-ink-950">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 via-sky-500 to-violet-500 flex items-center justify-center">
+                    <span class="text-white font-bold text-sm font-display">U</span>
+                </div>
+                <span class="text-slate-300 font-semibold font-display">UBBIM Digital</span>
+            </div>
+            <div class="text-slate-600 text-sm">
+                © <span id="year"></span> UBBIM Digital. All rights reserved.
+            </div>
+            <div class="flex gap-6">
+                <a href="#agentic-ai" class="text-sm text-slate-500 hover:text-white transition-colors" data-cursor="hover">Agentic AI</a>
+                <a href="#services" class="text-sm text-slate-500 hover:text-white transition-colors" data-cursor="hover">Services</a>
+                <a href="#approach" class="text-sm text-slate-500 hover:text-white transition-colors" data-cursor="hover">Approach</a>
+                <a href="#contact" class="text-sm text-slate-500 hover:text-white transition-colors" data-cursor="hover">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        const cursorDot = document.getElementById('cursor-dot');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let dotX = 0, dotY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.15;
+            cursorY += (mouseY - cursorY) * 0.15;
+            dotX += (mouseX - dotX) * 0.5;
+            dotY += (mouseY - dotY) * 0.5;
+
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            cursorDot.style.left = dotX + 'px';
+            cursorDot.style.top = dotY + 'px';
+
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        document.querySelectorAll('[data-cursor="hover"]').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        if ('ontouchstart' in window) {
+            cursor.style.display = 'none';
+            cursorDot.style.display = 'none';
+            document.querySelectorAll('*').forEach(el => el.style.cursor = 'auto');
+        }
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass-strong');
+            } else {
+                navbar.classList.remove('glass-strong');
+            }
+        });
+
+        // Service cards spotlight effect
+        document.querySelectorAll('.service-card, .agent-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            const delay = parseFloat(el.dataset.delay) || 0;
+            gsap.to(el, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                delay: delay,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: el,
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        });
+
+        gsap.to('.aurora-blob', {
+            yPercent: 20,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: 'body',
+                start: 'top top',
+                end: 'bottom bottom',
+                scrub: 1
+            }
+        });
+
+        // Agent nodes stagger animation
+        gsap.from('.agent-node', {
+            scale: 0.8,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.2,
+            ease: 'back.out(1.7)',
+            scrollTrigger: {
+                trigger: '#agentic-ai',
+                start: 'top 70%',
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
