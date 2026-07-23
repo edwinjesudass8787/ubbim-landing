@@ -162,7 +162,14 @@ document.addEventListener('DOMContentLoaded', () => {
   heroHeadings.forEach(heading => {
     const originalText = heading.innerText;
     const fx = new TextScramble(heading);
-    setTimeout(() => fx.setText(originalText), 400);
+    setTimeout(() => {
+      fx.setText(originalText).then(() => {
+        // Re-apply current language so i18n translations are not overwritten
+        if (window.i18n && typeof window.i18n.setLang === 'function') {
+          window.i18n.setLang(window.i18n.getLang());
+        }
+      });
+    }, 400);
   });
 
   // Count-up for stats
