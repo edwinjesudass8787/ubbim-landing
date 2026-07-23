@@ -157,9 +157,10 @@ function initSmoothScroll() {
 
 // --- Initialize All Animations ---
 document.addEventListener('DOMContentLoaded', () => {
-  // Text scramble on hero headings
+  // Text scramble on hero headings (skip elements that contain i18n keys)
   const heroHeadings = document.querySelectorAll('.page-header h1, .hero h1');
   heroHeadings.forEach(heading => {
+    if (heading.querySelector('[data-i18n]')) return;
     const originalText = heading.innerText;
     const fx = new TextScramble(heading);
     setTimeout(() => fx.setText(originalText), 400);

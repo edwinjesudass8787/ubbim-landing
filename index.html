@@ -46,22 +46,25 @@
         </a>
         <div class="hidden md:flex items-center gap-8">
           <div class="relative group">
-            <button class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1">Services <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+            <button class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1"><span data-i18n="nav-services">Services</span> <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
             <div class="absolute top-full left-0 mt-2 w-56 glass rounded-lg border border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
               <a href="html/built-environment-services.html" class="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors">Built Environment Services</a>
               <a href="html/digital-solutions.html" class="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors">Digital Solutions</a>
               <a href="html/training-development.html" class="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors">Training & Development</a>
               <a href="html/ubbim-academy.html" class="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors">UBBIM Academy</a>
+              <a href="html/built-environment-services.html" class="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors" data-i18n="dropdown-built">Built Environment Services</a>
+              <a href="html/digital-solutions.html" class="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors" data-i18n="dropdown-digital">Digital Solutions</a>
+              <a href="html/training-development.html" class="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors" data-i18n="dropdown-training">Training & Development</a>
             </div>
           </div>
-          <a href="html/projects.html" class="text-sm text-slate-400 hover:text-white transition-colors">Projects</a>
-          <a href="html/esg.html" class="text-sm text-slate-400 hover:text-white transition-colors">ESG</a>
-          <a href="html/awards.html" class="text-sm text-slate-400 hover:text-white transition-colors">Awards</a>
-          <a href="https://forms.gle/V83pyC6wXztdgcK29" target="_blank" class="text-sm text-slate-400 hover:text-white transition-colors">Whistleblower</a>
-          <a href="ubbim-digital.html" class="text-sm text-slate-400 hover:text-white transition-colors">UBBIM Digital</a>
+          <a href="html/projects.html" class="text-sm text-slate-400 hover:text-white transition-colors" data-i18n="nav-projects">Projects</a>
+          <a href="html/esg.html" class="text-sm text-slate-400 hover:text-white transition-colors" data-i18n="nav-esg">ESG</a>
+          <a href="html/awards.html" class="text-sm text-slate-400 hover:text-white transition-colors" data-i18n="nav-awards">Awards</a>
+          <a href="https://forms.gle/V83pyC6wXztdgcK29" target="_blank" class="text-sm text-slate-400 hover:text-white transition-colors" data-i18n="nav-whistleblower">Whistleblower</a>
+          <a href="ubbim-digital.html" class="text-sm text-slate-400 hover:text-white transition-colors" data-i18n="nav-digital">UBBIM Digital</a>
         </div>
         <a href="#contact" class="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-full btn-primary text-white text-sm font-medium">
-          <span>Contact Us</span>
+          <span data-i18n="nav-contact">Contact Us</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
         </a>
         <button id="mobile-menu-btn" class="md:hidden text-white p-2">
@@ -80,6 +83,14 @@
         <a href="html/awards.html" class="block text-slate-300 hover:text-white transition-colors">Awards</a>
         <a href="ubbim-digital.html" class="block text-slate-300 hover:text-white transition-colors">UBBIM Digital</a>
         <a href="#contact" class="inline-block mt-4 px-6 py-2.5 rounded-full btn-primary text-white text-sm font-medium">Contact Us</a>
+        <a href="html/built-environment-services.html" class="block text-slate-300 hover:text-white transition-colors" data-i18n="dropdown-built">Built Environment Services</a>
+        <a href="html/digital-solutions.html" class="block text-slate-300 hover:text-white transition-colors" data-i18n="dropdown-digital">Digital Solutions</a>
+        <a href="html/training-development.html" class="block text-slate-300 hover:text-white transition-colors" data-i18n="dropdown-training">Training & Development</a>
+        <a href="html/projects.html" class="block text-slate-300 hover:text-white transition-colors" data-i18n="nav-projects">Projects</a>
+        <a href="html/esg.html" class="block text-slate-300 hover:text-white transition-colors" data-i18n="nav-esg">ESG</a>
+        <a href="html/awards.html" class="block text-slate-300 hover:text-white transition-colors" data-i18n="nav-awards">Awards</a>
+        <a href="ubbim-digital.html" class="block text-slate-300 hover:text-white transition-colors" data-i18n="nav-digital">UBBIM Digital</a>
+        <a href="#contact" class="inline-block mt-4 px-6 py-2.5 rounded-full btn-primary text-white text-sm font-medium" data-i18n="nav-contact-mobile">Contact Us</a>
       </div>
     </div>
   </nav>
@@ -91,21 +102,21 @@
     <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center pt-20">
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-10 reveal">
         <span class="w-2 h-2 rounded-full bg-emerald-400 status-dot"></span>
-        <span class="text-sm text-slate-300">Since 2004 — Over 20 Years of Excellence</span>
+        <span class="text-sm text-slate-300" data-i18n="hero-badge">Since 2004 — Over 20 Years of Excellence</span>
       </div>
       <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] mb-8 reveal">
-        Integrated Solutions<br /><span class="text-gradient-shine">for the Built Environment</span>
+        <span data-i18n="hero-title-1">Integrated Solutions</span><br /><span class="text-gradient-shine" data-i18n="hero-title-2">for the Built Environment</span>
       </h1>
       <p class="max-w-3xl mx-auto text-lg md:text-xl text-slate-400 leading-relaxed mb-12 reveal">
-        From construction excellence to cutting-edge digital innovation, <strong class="text-white font-semibold">UBBIM delivers comprehensive services</strong> that shape the future of industries.
+        <span data-i18n="hero-desc-1">From construction excellence to cutting-edge digital innovation, </span><strong class="text-white font-semibold" data-i18n="hero-desc-strong">UBBIM delivers comprehensive services</strong><span data-i18n="hero-desc-2"> that shape the future of industries.</span>
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center mb-20 reveal">
-        <a href="#services" class="px-8 py-4 rounded-full btn-primary text-white font-semibold inline-flex items-center justify-center gap-2">Explore Our Services <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg></a>
-        <a href="html/projects.html" class="px-8 py-4 rounded-full btn-outline text-white font-semibold inline-flex items-center justify-center gap-2">View Projects</a>
+        <a href="#services" class="px-8 py-4 rounded-full btn-primary text-white font-semibold inline-flex items-center justify-center gap-2"><span data-i18n="hero-cta-1">Explore Our Services</span> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg></a>
+        <a href="html/projects.html" class="px-8 py-4 rounded-full btn-outline text-white font-semibold inline-flex items-center justify-center gap-2"><span data-i18n="hero-cta-2">View Projects</span></a>
       </div>
     </div>
     <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 scroll-bounce">
-      <span class="text-xs text-slate-500 uppercase tracking-widest">Scroll</span>
+      <span class="text-xs text-slate-500 uppercase tracking-widest" data-i18n="hero-scroll">Scroll</span>
       <div class="w-px h-12 bg-gradient-to-b from-slate-500 to-transparent"></div>
     </div>
   </section>
@@ -113,14 +124,14 @@
   <div class="border-y border-white/5 py-6 bg-ink-950/50 backdrop-blur-sm">
     <div class="marquee-container">
       <div class="marquee-content">
-        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">DESIGN & BUILD</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
-        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">DIGITAL SOLUTIONS</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
-        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">3D SCANNING</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
-        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">AERIAL ANALYTICS</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
-        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">DESIGN & BUILD</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
-        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">DIGITAL SOLUTIONS</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
-        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">3D SCANNING</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
-        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">AERIAL ANALYTICS</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8" data-i18n="marquee-1">DESIGN & BUILD</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8" data-i18n="marquee-2">DIGITAL SOLUTIONS</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8" data-i18n="marquee-3">3D SCANNING</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8" data-i18n="marquee-4">AERIAL ANALYTICS</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8" data-i18n="marquee-1">DESIGN & BUILD</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8" data-i18n="marquee-2">DIGITAL SOLUTIONS</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8" data-i18n="marquee-3">3D SCANNING</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
+        <span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8" data-i18n="marquee-4">AERIAL ANALYTICS</span><span class="text-4xl md:text-5xl font-display font-bold text-white/5 mx-8">•</span>
       </div>
     </div>
   </div>
@@ -128,8 +139,8 @@
   <section class="relative py-32 overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="text-center mb-16">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-medium mb-6 reveal">Discover UBBIM</div>
-        <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal">Our Story in Motion</h2>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-medium mb-6 reveal" data-i18n="video-label">Discover UBBIM</div>
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal" data-i18n="video-title">Our Story in Motion</h2>
       </div>
       <div class="relative rounded-2xl overflow-hidden border border-white/10 reveal" style="padding-bottom: 56.25%;">
         <iframe allowfullscreen="" frameborder="0" class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/IMFSWjvVlUM?rel=0&amp;showinfo=0&amp;autoplay=0&amp;loop=0"></iframe>
@@ -141,21 +152,21 @@
     <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-[150px]"></div>
     <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
       <div class="text-center mb-20">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-6 reveal">About Us</div>
-        <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal">Experience, Expertise, and a <span class="text-gradient-agent">Commitment to Excellence</span></h2>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-6 reveal" data-i18n="about-label">About Us</div>
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal"><span data-i18n="about-title-1">Experience, Expertise, and a </span><span class="text-gradient-agent" data-i18n="about-title-2">Commitment to Excellence</span></h2>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="glass rounded-2xl p-8 border border-white/10 reveal">
           <div class="text-5xl font-display font-bold text-emerald-400/30 mb-4">01</div>
-          <p class="text-slate-400 leading-relaxed">UBBIM is a leading construction project management company with over 20 years of experience in the industry. We provide comprehensive solutions for construction projects, including design-build services, project management, progress monitoring, and data analytics.</p>
+          <p class="text-slate-400 leading-relaxed" data-i18n="about-card-1">UBBIM is a leading construction project management company with over 20 years of experience in the industry. We provide comprehensive solutions for construction projects, including design-build services, project management, progress monitoring, and data analytics.</p>
         </div>
         <div class="glass rounded-2xl p-8 border border-white/10 reveal">
           <div class="text-5xl font-display font-bold text-sky-400/30 mb-4">02</div>
-          <p class="text-slate-400 leading-relaxed">At UBBIM, we are continuously looking for ways to improve our services through technology adoption. We utilize advanced digital technologies such as Building Information Modeling (BIM), virtual reality (VR), and other digital tools to optimize project performance and delivery.</p>
+          <p class="text-slate-400 leading-relaxed" data-i18n="about-card-2">At UBBIM, we are continuously looking for ways to improve our services through technology adoption. We utilize advanced digital technologies such as Building Information Modeling (BIM), virtual reality (VR), and other digital tools to optimize project performance and delivery.</p>
         </div>
         <div class="glass rounded-2xl p-8 border border-white/10 reveal">
           <div class="text-5xl font-display font-bold text-violet-400/30 mb-4">03</div>
-          <p class="text-slate-400 leading-relaxed">Our team brings a wealth of experience and expertise to every project, providing expert guidance and support throughout the project lifecycle. We are committed to delivering projects on time, on budget, and to the highest standards of quality.</p>
+          <p class="text-slate-400 leading-relaxed" data-i18n="about-card-3">Our team brings a wealth of experience and expertise to every project, providing expert guidance and support throughout the project lifecycle. We are committed to delivering projects on time, on budget, and to the highest standards of quality.</p>
         </div>
       </div>
     </div>
@@ -164,8 +175,8 @@
   <section id="services" class="relative py-32 overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="max-w-3xl mb-20">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-medium mb-6 reveal">What We Do</div>
-        <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-6 reveal">Our <span class="text-gradient">Services</span></h2>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-medium mb-6 reveal" data-i18n="services-label">What We Do</div>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-6 reveal"><span data-i18n="services-title">Our </span><span class="text-gradient" data-i18n="services-title-gradient">Services</span></h2>
       </div>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="service-card glass rounded-2xl overflow-hidden border border-white/10 reveal">
@@ -175,11 +186,11 @@
           </div>
           <div class="p-8">
             <div class="flex items-start justify-between mb-4">
-              <h3 class="text-2xl font-display font-bold text-white">Built Environment Services</h3>
+              <h3 class="text-2xl font-display font-bold text-white" data-i18n="service-1-title">Built Environment Services</h3>
               <span class="text-xs text-slate-500 font-mono">01</span>
             </div>
-            <p class="text-slate-400 leading-relaxed mb-6">Our Built Environment Services encompass every phase of construction and infrastructure development, from design and build to maintenance and refurbishment. We specialize in delivering high-quality, sustainable solutions.</p>
-            <a href="html/built-environment-services.html" class="inline-flex items-center gap-2 text-sky-400 hover:text-sky-300 transition-colors text-sm font-medium">Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+            <p class="text-slate-400 leading-relaxed mb-6" data-i18n="service-1-desc">Our Built Environment Services encompass every phase of construction and infrastructure development, from design and build to maintenance and refurbishment. We specialize in delivering high-quality, sustainable solutions.</p>
+            <a href="html/built-environment-services.html" class="inline-flex items-center gap-2 text-sky-400 hover:text-sky-300 transition-colors text-sm font-medium"><span data-i18n="learn-more">Learn More</span> <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
           </div>
         </div>
         <div class="service-card glass rounded-2xl overflow-hidden border border-white/10 reveal">
@@ -189,11 +200,11 @@
           </div>
           <div class="p-8">
             <div class="flex items-start justify-between mb-4">
-              <h3 class="text-2xl font-display font-bold text-white">Digital Solutions</h3>
+              <h3 class="text-2xl font-display font-bold text-white" data-i18n="service-2-title">Digital Solutions</h3>
               <span class="text-xs text-slate-500 font-mono">02</span>
             </div>
-            <p class="text-slate-400 leading-relaxed mb-6">Our Digital Solutions integrate advanced technologies like aerial analytics, 3D scanning, and virtual design coordination to transform how projects are planned, executed, and managed.</p>
-            <a href="html/digital-solutions.html" class="inline-flex items-center gap-2 text-violet-400 hover:text-violet-300 transition-colors text-sm font-medium">Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+            <p class="text-slate-400 leading-relaxed mb-6" data-i18n="service-2-desc">Our Digital Solutions integrate advanced technologies like aerial analytics, 3D scanning, and virtual design coordination to transform how projects are planned, executed, and managed.</p>
+            <a href="html/digital-solutions.html" class="inline-flex items-center gap-2 text-violet-400 hover:text-violet-300 transition-colors text-sm font-medium"><span data-i18n="learn-more">Learn More</span> <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
           </div>
         </div>
         <div class="service-card glass rounded-2xl overflow-hidden border border-white/10 reveal">
@@ -205,11 +216,11 @@
           </div>
           <div class="p-8">
             <div class="flex items-start justify-between mb-4">
-              <h3 class="text-2xl font-display font-bold text-white">Training & Development</h3>
+              <h3 class="text-2xl font-display font-bold text-white" data-i18n="service-3-title">Training & Development</h3>
               <span class="text-xs text-slate-500 font-mono">03</span>
             </div>
-            <p class="text-slate-400 leading-relaxed mb-6">UBBIM powers ACPM Academy — a CPD learning and development platform for ACPM members and construction professionals. Continuous training to stay ahead in the built environment.</p>
-            <a href="html/training-development.html" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors text-sm font-medium">Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+            <p class="text-slate-400 leading-relaxed mb-6" data-i18n="service-3-desc">UBBIM powers ACPM Academy — a CPD learning and development platform for ACPM members and construction professionals. Continuous training to stay ahead in the built environment.</p>
+            <a href="html/training-development.html" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors text-sm font-medium"><span data-i18n="learn-more">Learn More</span> <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
           </div>
         </div>
       </div>
@@ -219,8 +230,8 @@
   <section id="certifications" class="relative py-32 overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="text-center mb-16">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs font-medium mb-6 reveal">Credentials</div>
-        <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal">Licenses & <span class="text-gradient">Certifications</span></h2>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs font-medium mb-6 reveal" data-i18n="certs-label">Credentials</div>
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal"><span data-i18n="certs-title">Licenses & </span><span class="text-gradient" data-i18n="certs-title-gradient">Certifications</span></h2>
       </div>
       <div class="cert-carousel reveal" id="certCarousel">
         <button class="cert-carousel-btn prev" onclick="certPrev()" aria-label="Previous certificate"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
@@ -241,8 +252,8 @@
   <section class="relative py-20 border-y border-white/5">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="text-center mb-12">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-medium mb-6 reveal">Partners</div>
-        <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal">We Are Trusted By</h2>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-medium mb-6 reveal" data-i18n="partners-label">Partners</div>
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal" data-i18n="partners-title">We Are Trusted By</h2>
       </div>
       <div class="flex flex-wrap justify-center items-center gap-12 md:gap-16">
         <img src="images/cenviro.png" alt="Cenviro" class="client-logo">
@@ -263,19 +274,19 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
       <div class="grid lg:grid-cols-1 gap-16 max-w-2xl mx-auto">
         <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-6 reveal">Get in Touch</div>
-          <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal">Contact <span class="text-gradient-agent">Us</span></h2>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-6 reveal" data-i18n="contact-label">Get in Touch</div>
+          <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 reveal"><span data-i18n="contact-title">Contact </span><span class="text-gradient-agent" data-i18n="contact-title-gradient">Us</span></h2>
           <div class="space-y-6 mt-10">
             <div class="glass rounded-xl p-6 border border-white/10 reveal">
-              <div class="text-xs text-emerald-400 font-medium uppercase tracking-wider mb-2">Address</div>
+              <div class="text-xs text-emerald-400 font-medium uppercase tracking-wider mb-2" data-i18n="contact-address">Address</div>
               <div class="text-white">219, Jalan S2 B10, Seremban 2,<br>70300 Seremban, Negeri Sembilan</div>
             </div>
             <div class="glass rounded-xl p-6 border border-white/10 reveal">
-              <div class="text-xs text-sky-400 font-medium uppercase tracking-wider mb-2">Phone</div>
+              <div class="text-xs text-sky-400 font-medium uppercase tracking-wider mb-2" data-i18n="contact-phone">Phone</div>
               <div class="text-white">+606-6016007</div>
             </div>
             <div class="glass rounded-xl p-6 border border-white/10 reveal">
-              <div class="text-xs text-violet-400 font-medium uppercase tracking-wider mb-2">Email</div>
+              <div class="text-xs text-violet-400 font-medium uppercase tracking-wider mb-2" data-i18n="contact-email">Email</div>
               <div class="text-white">admin@ubbim.com</div>
             </div>
           </div>
@@ -289,28 +300,28 @@
       <div class="grid md:grid-cols-4 gap-10 mb-12">
         <div class="md:col-span-1">
           <img src="images/title-9.png" alt="UBBIM" class="h-8 w-auto brightness-0 invert mb-4">
-          <p class="text-slate-500 text-sm leading-relaxed">Integrated Solutions for the Built Environment.</p>
+          <p class="text-slate-500 text-sm leading-relaxed" data-i18n="footer-tagline">Integrated Solutions for the Built Environment.</p>
         </div>
         <div>
-          <div class="text-xs text-slate-500 font-medium uppercase tracking-wider mb-3">Seremban HQ</div>
+          <div class="text-xs text-slate-500 font-medium uppercase tracking-wider mb-3" data-i18n="footer-hq">Seremban HQ</div>
           <p class="text-slate-400 text-sm leading-relaxed">219, Jalan S2 B10, Seremban 2,<br>70300 Seremban, Negeri Sembilan</p>
         </div>
         <div>
-          <div class="text-xs text-slate-500 font-medium uppercase tracking-wider mb-3">Penang</div>
+          <div class="text-xs text-slate-500 font-medium uppercase tracking-wider mb-3" data-i18n="footer-penang">Penang</div>
           <p class="text-slate-400 text-sm leading-relaxed">Level 2, Moulmein Rise Shoppes,<br>No. 9, Jalan Moulmein,<br>10350 George Town, Penang</p>
         </div>
         <div>
-          <div class="text-xs text-slate-500 font-medium uppercase tracking-wider mb-3">Bangsar South</div>
+          <div class="text-xs text-slate-500 font-medium uppercase tracking-wider mb-3" data-i18n="footer-kl">Bangsar South</div>
           <p class="text-slate-400 text-sm leading-relaxed">Menara BT, Level 1 & 2, Tower 3,<br>Avenue 7, Horizon 2,<br>Bangsar South City No. 8, Jalan Kerinchi,<br>59200 Kuala Lumpur</p>
         </div>
       </div>
       <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <div class="text-slate-600 text-sm">© 2024 UBBIM - All Rights Reserved</div>
+        <div class="text-slate-600 text-sm" data-i18n="footer-copyright">© 2024 UBBIM - All Rights Reserved</div>
         <div class="flex gap-6">
-          <a href="html/built-environment-services.html" class="text-sm text-slate-500 hover:text-white transition-colors">Services</a>
-          <a href="html/projects.html" class="text-sm text-slate-500 hover:text-white transition-colors">Projects</a>
-          <a href="html/awards.html" class="text-sm text-slate-500 hover:text-white transition-colors">Awards</a>
-          <a href="#contact" class="text-sm text-slate-500 hover:text-white transition-colors">Contact</a>
+          <a href="html/built-environment-services.html" class="text-sm text-slate-500 hover:text-white transition-colors" data-i18n="footer-services">Services</a>
+          <a href="html/projects.html" class="text-sm text-slate-500 hover:text-white transition-colors" data-i18n="footer-projects">Projects</a>
+          <a href="html/awards.html" class="text-sm text-slate-500 hover:text-white transition-colors" data-i18n="footer-awards">Awards</a>
+          <a href="#contact" class="text-sm text-slate-500 hover:text-white transition-colors" data-i18n="footer-contact">Contact</a>
         </div>
       </div>
     </div>
@@ -425,6 +436,7 @@
     })();
   </script>
   <script src="js/animations.js"></script>
+  <script src="js/i18n.js"></script>
 
   <script>
     // Tetris Background Game
