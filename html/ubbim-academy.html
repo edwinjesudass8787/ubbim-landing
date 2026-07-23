@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1, minimum-scale=1" name="viewport">
+  <link href="../images/favicon.svg" rel="shortcut icon" type="image/x-icon">
+  <meta content="UBBIM Academy — Professional training and development programs for the built environment" name="description">
+  <title>UBBIM Academy | Under Construction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { display: ['Space Grotesk', 'sans-serif'], body: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+          colors: { ink: { 950: '#01040f' }, electric: { 400: '#38bdf8', 500: '#0ea5e9' }, neon: { 400: '#a78bfa', 500: '#8b5cf6' }, agent: { 400: '#34d399', 500: '#10b981' } }
+        }
+      }
+    }
+  </script>
+  <link href="../css/shared.css" rel="stylesheet">
+  <style>
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.15); }
+      50% { box-shadow: 0 0 40px rgba(56, 189, 248, 0.3); }
+    }
+    .construction-glow {
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="antialiased cursor-enabled">
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="noise"></div>
+
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center group"><img src="../images/title-9.png" alt="UBBIM" class="h-10 w-auto brightness-0 invert"></a>
+        <div class="hidden md:flex items-center gap-8">
+          <div class="relative group">
+            <button class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1">Services <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+            <div class="absolute top-full left-0 mt-2 w-56 glass rounded-lg border border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
+              <a href="built-environment-services.html" class="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors">Built Environment Services</a>
+              <a href="digital-solutions.html" class="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors">Digital Solutions</a>
+              <a href="training-development.html" class="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors">Training &amp; Development</a>
+            </div>
+          </div>
+          <a href="projects.html" class="text-sm text-slate-400 hover:text-white transition-colors">Projects</a>
+          <a href="esg.html" class="text-sm text-slate-400 hover:text-white transition-colors">ESG</a>
+          <a href="awards.html" class="text-sm text-slate-400 hover:text-white transition-colors">Awards</a>
+          <a href="https://forms.gle/V83pyC6wXztdgcK29" target="_blank" class="text-sm text-slate-400 hover:text-white transition-colors">Whistleblower</a>
+          <a href="../ubbim-digital.html" class="text-sm text-slate-400 hover:text-white transition-colors">UBBIM Digital</a>
+        </div>
+        <a href="index.html#contact" class="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-full btn-primary text-white text-sm font-medium"><span>Contact Us</span><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
+        <button id="mobile-menu-btn" class="md:hidden text-white p-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden glass-strong border-t border-white/5">
+      <div class="px-6 py-6 space-y-4">
+        <a href="built-environment-services.html" class="block text-slate-300 hover:text-white transition-colors">Built Environment Services</a>
+        <a href="digital-solutions.html" class="block text-slate-300 hover:text-white transition-colors">Digital Solutions</a>
+        <a href="training-development.html" class="block text-slate-300 hover:text-white transition-colors">Training &amp; Development</a>
+        <a href="projects.html" class="block text-slate-300 hover:text-white transition-colors">Projects</a>
+        <a href="awards.html" class="block text-slate-300 hover:text-white transition-colors">Awards</a>
+        <a href="../ubbim-digital.html" class="block text-slate-300 hover:text-white transition-colors">UBBIM Digital</a>
+        <a href="index.html#contact" class="inline-block mt-4 px-6 py-2.5 rounded-full btn-primary text-white text-sm font-medium">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-header min-h-screen flex items-center justify-center">
+    <div class="aurora"><div class="aurora-blob"></div><div class="aurora-blob"></div><div class="aurora-blob"></div></div>
+    <div class="absolute inset-0 grid-pattern opacity-30"></div>
+    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-sm font-medium mb-8 construction-glow">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+        <span>Under Construction</span>
+      </div>
+      
+      <h1 class="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-white leading-[0.95] mb-6">
+        UBBIM <span class="text-gradient">Academy</span>
+      </h1>
+      
+      <p class="text-lg md:text-xl text-slate-400 leading-relaxed mb-10 max-w-xl mx-auto">
+        We are building something exceptional. UBBIM Academy will deliver world-class training and professional development programs for the built environment industry.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="index.html" class="inline-flex items-center gap-2 px-8 py-3 rounded-full btn-primary text-white font-medium transition-all hover:scale-105">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          Back to Homepage
+        </a>
+        <a href="mailto:admin@ubbim.com" class="inline-flex items-center gap-2 px-8 py-3 rounded-full glass border border-white/10 text-white font-medium hover:bg-white/5 transition-all">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          Get Notified
+        </a>
+      </div>
+      
+      <div class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
+        <div class="glass rounded-xl p-5 border border-white/10 text-center">
+          <div class="text-2xl font-display font-bold text-gradient mb-1">CPD</div>
+          <div class="text-sm text-slate-400">Accredited Programs</div>
+        </div>
+        <div class="glass rounded-xl p-5 border border-white/10 text-center">
+          <div class="text-2xl font-display font-bold text-gradient-agent mb-1">BIM</div>
+          <div class="text-sm text-slate-400">Training &amp; Certification</div>
+        </div>
+        <div class="glass rounded-xl p-5 border border-white/10 text-center">
+          <div class="text-2xl font-display font-bold text-gradient-shine mb-1">AI</div>
+          <div class="text-sm text-slate-400">Digital Skills</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-white/5 py-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <div class="text-slate-600 text-sm">&copy; 2024 UBBIM — All Rights Reserved</div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('glass-strong', window.scrollY > 50));
+  </script>
+</body>
+</html>
